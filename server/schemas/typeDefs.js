@@ -5,6 +5,7 @@ type User {
     _id: ID
     username: String
     email: String
+    thoughts: [Thought]
     friends: [User]
 }
 
