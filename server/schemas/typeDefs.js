@@ -14,7 +14,15 @@ type Thought{
     thoughtText: String
     createdAt: String
     username: String
-    
+    reactionCount: Int
+    reactions: [Reaction]
+}
+
+type Reaction {
+    _id: ID
+    reactionBody: String
+    createdAt: String
+    username: String
 }
 
 type Auth {
@@ -24,11 +32,16 @@ type Auth {
 
 type Query {
     users: [User]
+    user(username: String!): User
+    thoughts (username: String): [Thought]
+    thought(_id:ID!): Thought
 }
 
 type Mutation {
     addUser(username: String!, email: String!, password: String!, friends:ID!): Auth
     addThought(thoughtText: String!): Thought
+    addReaction(thoughtId: ID!, reactionBody: String!): Thought
+    addFriend(friendId: ID!): User
 }
 `;
 
