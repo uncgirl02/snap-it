@@ -9,6 +9,13 @@ type User {
     friends: [User]
 }
 
+type Thought{
+    _id: ID
+    thoughtText: String
+    createdAt: String
+    username: String
+    
+}
 
 type Auth {
     token: ID!
@@ -21,6 +28,7 @@ type Query {
 
 type Mutation {
     addUser(username: String!, email: String!, password: String!, friends:ID!): Auth
+    addThought(thoughtText: String!): Thought
 }
 `;
 

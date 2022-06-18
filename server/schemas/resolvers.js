@@ -1,5 +1,5 @@
 const { User, Thought } = require("../models");
-const { AuthenicationError, AuthenticationError } = require("apollo-server-express");
+const { AuthenicationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
@@ -33,6 +33,7 @@ thought: async (parent, {_id}) => {
       await User.findByIdAndUpdate(
         {_id: context.user._id},
         { $push: { thoughts: thought._id}},
+        {new: true}
       );
       return thought;
     }
