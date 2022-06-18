@@ -8,8 +8,17 @@ type User {
     friends: [User]
 }
 
+type Auth {
+    token: ID!
+    user: User
+}
+
 type Query {
     users: [User]
+}
+
+type Mutation {
+    addUser(username: String!, email: String!, password: String!, friends:ID!): Auth
 }
 `;
 
