@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/snap-shot-spot', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/snap-shot-spot', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
+  // useCreateIndex: true,
+  // useFindAndModify: false
 });
 
 module.exports = mongoose.connection;
