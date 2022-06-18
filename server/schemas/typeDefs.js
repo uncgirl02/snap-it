@@ -9,6 +9,7 @@ type User {
     friends: [User]
 }
 
+
 type Auth {
     token: ID!
     user: User
