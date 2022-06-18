@@ -12,13 +12,15 @@ const resolvers = {
       }
       throw new AuthenicationError("not logged in");
     },
-  },
+  
   thoughts: async (parent, { username }) => {
     const params = username ? { username } : {};
-    return Thougth.find(parsams).sort({ createdAt: -1 });
+    return Thought.find(params).sort({ createdAt: -1 });
   },
+  
   thought: async (parent, { _id }) => {
     return Thought.findOne({ _id });
+  }
   },
 
   Mutation: {
@@ -66,8 +68,9 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
-    }
-  },
+    
+  }
+  }
 };
 
 module.exports = resolvers;
