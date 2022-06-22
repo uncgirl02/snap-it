@@ -1,1 +1,1 @@
-# snap-shot-spot
+# snap-it
