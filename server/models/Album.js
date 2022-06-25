@@ -12,10 +12,17 @@ const AlbumSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        get: timestamp => dateFormat(timestamp)
     },
     photos: []
-});
+},
+{
+    toJSON: {
+      getters: true
+    }
+  }
+);
 
 // create the model using the schema
 const Album = model('Album', AlbumSchema);

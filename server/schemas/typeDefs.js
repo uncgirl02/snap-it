@@ -43,6 +43,16 @@ type Mutation {
     addReaction(thoughtId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
 }
+
+type Album {
+    _id: ID
+    albumName: String
+    createdAt: String
+    
+}
+type Query {
+    albums: [Album]
+}
 `;
 
 module.exports = typeDefs;
