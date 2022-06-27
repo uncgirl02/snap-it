@@ -43,8 +43,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <
-        
+        <ChakraProvider>
+
+        </ChakraProvider>
       </Router>
     </ApolloProvider>
   );
