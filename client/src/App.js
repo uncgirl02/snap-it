@@ -12,6 +12,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import './App.css';
+import { ChakraProvider } from '@chakra-ui/react';
 
 // import Navbar from './components/Navbar';
 // import Footer from './components/';
@@ -43,8 +44,26 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <
-        
+        <ChakraProvider>
+          <div>
+            <Route
+            path="/"
+            element={<Home />}
+            />
+            <Route
+            path="/dashboard"
+            element={<Dashboard />}
+            />
+            <Route
+            path="/EditAlbum"
+            element={<EditAlbum />}
+            />
+            <Route
+            path="/CreateAlbum"
+            element={<CreateAlbum />}
+            />
+          </div>
+        </ChakraProvider>
       </Router>
     </ApolloProvider>
   );

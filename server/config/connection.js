@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/snap-shot-spot', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/snap-it', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   // useCreateIndex: true,
