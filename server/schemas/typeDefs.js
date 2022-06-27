@@ -7,6 +7,7 @@ type User {
     email: String
     thoughts: [Thought]
     friends: [User]
+    albums: [Album]
 }
 
 type Thought{
@@ -34,6 +35,7 @@ type Query {
     users: [User]
     user(username: String!): User
     thoughts (username: String): [Thought]
+    albums(username: String!): [Album]
     thought(_id:ID!): Thought
 }
 
@@ -42,6 +44,14 @@ type Mutation {
     addThought(thoughtText: String!): Thought
     addReaction(thoughtId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
+    addAlbum(albumId: ID!): Album
+}
+
+type Album {
+    _id: ID
+    albumName: String
+    createdAt: String
+
 }
 `;
 
