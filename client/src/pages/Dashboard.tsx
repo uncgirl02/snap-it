@@ -1,4 +1,6 @@
 import DashboardNav from "../components/DashboardNav"
+import Sidebar from "../components/Sidebar"
+import Footer from "../components/Footer"
 
 
 const Dashboard = () => {
@@ -6,7 +8,9 @@ const Dashboard = () => {
         <main>
         <DashboardNav />
             <div>
+                <Sidebar children={undefined} />
             </div>
+        <Footer />
         </main>
 
 

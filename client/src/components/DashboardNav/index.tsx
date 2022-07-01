@@ -21,7 +21,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 
-const Links = ['Profile', 'Friend List'];
+const Links = ['Edit Profile', 'Friend List', 'Log Out'];
 
 const NavLink = ({ children }: { children: ReactNode }) => (
   <Link
@@ -92,12 +92,6 @@ export function DashboardNav() {
                   }
                 />
               </MenuButton>
-              <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
-                <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
-              </MenuList>
             </Menu>
           </Flex>
         </Flex>

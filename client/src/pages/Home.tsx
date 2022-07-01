@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar'
 import AlbumCard from '../components/AlbumCard'
 import Testimonials from '../components/Testimonials'
 import HowItWorks from '../components/HowItWorks'
+import Footer from '../components/Footer'
 import {
 Flex,
 Container,
@@ -36,6 +37,7 @@ return (
         </Container>
         <Testimonials />
         </div> 
+    <Footer />
     </main>
     
 )
