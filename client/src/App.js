@@ -42,7 +42,7 @@ import Home from './pages/Home';
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+    // <ApolloProvider client={client}>
       <Router>
           <div>
             <Routes>
@@ -67,7 +67,7 @@ function App() {
             </Routes>
           </div>
       </Router>
-    </ApolloProvider>
+    // </ApolloProvider>
   );
 }
 

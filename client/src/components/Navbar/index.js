@@ -17,12 +17,12 @@ import {
     useBreakpointValue,
     useDisclosure,
   } from '@chakra-ui/react';
-  import {
-    HamburgerIcon,
-    CloseIcon,
-    ChevronDownIcon,
-    ChevronRightIcon,
-  } from '@chakra-ui/icons';
+  // import {
+  //   HamburgerIcon,
+  //   CloseIcon,
+  //   ChevronDownIcon,
+  //   ChevronRightIcon,
+  // } from '@chakra-ui/icons';
   
   export function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
@@ -57,7 +57,7 @@ import {
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
               color={useColorModeValue('gray.800', 'white')}>
-              Logo
+              Snap It!
             </Text>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
