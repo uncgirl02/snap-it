@@ -1,4 +1,4 @@
-
+import { ReactNode } from 'react';
 import {
   Box,
   Flex,
@@ -10,11 +10,11 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-const Testimonial = ({ children }) => {
+const Testimonial = ({ children }: { children: ReactNode }) => {
   return <Box>{children}</Box>;
 };
 
-const TestimonialContent = ({ children }) => {
+const TestimonialContent = ({ children }: { children: ReactNode }) => {
   return (
     <Stack
       bg={useColorModeValue('white', 'gray.800')}
@@ -44,7 +44,7 @@ const TestimonialContent = ({ children }) => {
   );
 };
 
-const TestimonialHeading = ({ children }) => {
+const TestimonialHeading = ({ children }: { children: ReactNode }) => {
   return (
     <Heading as={'h3'} fontSize={'xl'}>
       {children}
@@ -52,7 +52,7 @@ const TestimonialHeading = ({ children }) => {
   );
 };
 
-const TestimonialText = ({ children }) => {
+const TestimonialText = ({ children }: { children: ReactNode }) => {
   return (
     <Text
       textAlign={'center'}
@@ -67,10 +67,14 @@ const TestimonialAvatar = ({
   src,
   name,
   title,
+}: {
+  src: string;
+  name: string;
+  title: string;
 }) => {
   return (
     <Flex align={'center'} mt={8} direction={'column'}>
-      <Avatar src={src} alt={name} mb={2} />
+      <Avatar src={src} mb={2} />
       <Stack spacing={-1} align={'center'}>
         <Text fontWeight={600}>{name}</Text>
         <Text fontSize={'sm'} color={useColorModeValue('gray.600', 'gray.400')}>
@@ -145,5 +149,4 @@ export function Testimonials() {
     </Box>
   );
 }
-
 export default Testimonials;
