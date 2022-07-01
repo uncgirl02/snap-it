@@ -1,4 +1,20 @@
+import DashboardNav from "../components/DashboardNav"
 
 
-const DashBoard = () => {
+const Dashboard = () => {
     return ( 
+        <main>
+        <DashboardNav />
+            <div>
+            </div>
+        </main>
+
+
+
+
+
+
+    )
+}
+
+export default Dashboard
