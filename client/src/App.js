@@ -16,42 +16,41 @@ import './App.css';
 
 
 import Home from './pages/Home';
-// import Dashboard from './pages/Dashboard';
-// import CreateAlbum from './pages/CreateAlbum';
-// import EditAlbum from './pages/EditAlbum';
+import Dashboard from './pages/Dashboard';
+import CreateAlbum from './pages/CreateAlbum';
+import EditAlbum from './pages/EditAlbum';
 
 
-// const httpLink = createHttpLink({
-//   uri: '/graphql',
-// });
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
 
-// const authLink = setContext((_, { headers }) => {
-//   const token = localStorage.getItem('id_token');
-//   return {
-//     headers: {
-//       ...headers,
-//       authorization: token ? `Bearer ${token}` : '',
-//     },
-//   };
-// });
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 
-// const client = new ApolloClient({
-//   link: authLink.concat(httpLink),
-//   cache: new InMemoryCache(),
-// });
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
-    // <ApolloProvider client={client}>
+   <ApolloProvider client={client}>
       <Router>
           <div>
             <Routes>
-              <ChakraProvider>
                 <Route 
                   path="/" 
                   element={<Home />} 
                 />
-                {/* <Route 
+                <Route 
                   path="/dashboard" 
                   element={<Dashboard />} 
                 />
@@ -62,12 +61,11 @@ function App() {
                 <Route 
                   path="/edit" 
                   element={<EditAlbum />} 
-                /> */}
-              </ChakraProvider>
+                />
             </Routes>
           </div>
       </Router>
-    // </ApolloProvider>
+   </ApolloProvider>
   );
 }
 
