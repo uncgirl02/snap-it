@@ -13,6 +13,7 @@ import {
   } from '@chakra-ui/react';
   import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
   import { FiShoppingCart } from 'react-icons/fi';
+import { graphqlSync } from 'graphql';
   
   const data = {
     isNew: true,
@@ -26,6 +27,10 @@ import {
       <Flex p={50} w="full" alignItems="center" justifyContent="center">
         <Box
           bg={useColorModeValue('white', 'gray.800')}
+          _hover={{
+            transform: 'translateY(5px)',
+            boxShadow: 'dark-lg',
+          }}
           maxW="sm"
           borderWidth="1px"
           rounded="lg"

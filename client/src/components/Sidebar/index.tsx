@@ -83,19 +83,20 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       borderRight="1px"
       borderRightColor={useColorModeValue('gray.200', 'gray.700')}
       w={{ base: 'full', md: 60 }}
-      pos="fixed"
+    //   pos="fixed"
       h="full"
+      py='6'
       {...rest}>
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+      <Flex  alignItems="center" mx="8" justifyContent="space-between">
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
-      <Text textAlign={'center'} fontWeight={'bold'}>Album Categories</Text>
+      <Text textAlign={'center'} fontWeight={'bold'} color='teal' fontSize='lg'>Album Categories</Text>
       {LinkItems.map((link) => (
         <NavItem key={link.name} icon={link.icon}>
           {link.name}
         </NavItem>
       ))}
-      <Text textAlign={'center'} fontWeight={'bold'}>Your Albums</Text>
+      <Text textAlign={'center'} fontWeight={'bold'} color='teal' fontSize='lg' mt={6}>Your Albums</Text>
     </Box>
   );
 };

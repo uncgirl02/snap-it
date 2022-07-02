@@ -9,6 +9,12 @@ const Dashboard = () => {
         <DashboardNav />
             <div>
                 <Sidebar children={undefined} />
+                <div>
+                    <h1>Favorite Albums</h1>
+                </div>
+                <div>
+                    <h1>Friends Albums</h1>
+                </div>
             </div>
         <Footer />
         </main>

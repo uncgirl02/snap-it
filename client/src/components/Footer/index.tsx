@@ -11,6 +11,7 @@ import {
     VisuallyHidden,
     Image,
     Heading,
+    HStack,
   } from '@chakra-ui/react';
   import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
   import { ReactNode } from 'react';
@@ -51,7 +52,7 @@ import {
   export function Footer() {
     return (
       <Box
-        bg={useColorModeValue('gray.50', 'gray.900')}
+        bg={useColorModeValue('gray.300', 'gray.900')}
         color={useColorModeValue('gray.700', 'gray.200')}>
         <Container
           as={Stack}
@@ -61,14 +62,16 @@ import {
           spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
-        <Image src={logo} boxSize='100px' objectFit='cover'></Image>
-        <Heading
-            textAlign={'center'}
-            fontFamily={'Helvetica, sans-serif;'}
-            fontSize='6xl'
-            color={useColorModeValue('gray.800', 'white')}>
-            Snap It!
-        </Heading>
+            <HStack>
+                <Image src={logo} boxSize='50px' objectFit='cover'></Image>
+                <Heading
+                    textAlign={'center'}
+                    fontFamily={'Helvetica, sans-serif;'}
+                    fontSize='3xl'
+                    color={useColorModeValue('gray.800', 'white')}>
+                    Snap It!
+                </Heading>
+            </HStack>
           <Text>© 2022 Snap It!. All rights reserved</Text>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'#'}>

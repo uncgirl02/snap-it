@@ -30,7 +30,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
     rounded={'md'}
     _hover={{
       textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
+      bg: useColorModeValue('teal.300', 'teal.300'),
     }}
     href={'#'}>
     {children}
@@ -42,7 +42,7 @@ export function DashboardNav() {
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box bg={useColorModeValue('gray.300', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -55,21 +55,21 @@ export function DashboardNav() {
             <Image src={logo} boxSize='75px' objectFit='cover'></Image>
             <Heading
                     textAlign={'center'}
-                    fontFamily={'Helvetica, sans-serif;'}
                     fontSize='5xl'
                     color={useColorModeValue('gray.800', 'white')}>
                     Snap It!
             </Heading>
-            <HStack
+          </HStack>
+          <Flex alignItems={'center'}>
+          <HStack
               as={'nav'}
-              spacing={4}
+              spacing={3}
+              mr={3}
               display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
             </HStack>
-          </HStack>
-          <Flex alignItems={'center'}>
             <Button
               variant={'solid'}
               colorScheme={'teal'}
