@@ -22,7 +22,8 @@ import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
 import Dashboard from "./pages/Dashboard";
-import NewAlbum from "./pages/NewAlbum";
+import NewAlbum from "./pages/newAlbum";
+import EditAlbum from "./pages/EditAlbum";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -60,6 +61,10 @@ export const App = () => (
               <Route 
                 path="/NewAlbum" 
                 element={<NewAlbum />} 
+              />
+              <Route 
+                path="/EditAlbum" 
+                element={<EditAlbum />} 
               />
             </Routes>
         </div>
