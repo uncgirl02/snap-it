@@ -1,5 +1,5 @@
 const { User, Thought, Album } = require("../models");
-const { AuthenicationError } = require("apollo-server-express");
+const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
@@ -11,7 +11,7 @@ const resolvers = {
           .populate("friends")
           .populate("albums");
       }
-      throw new AuthenicationError("not logged in");
+      throw new AuthenticationError("not logged in");
     },
 
     thoughts: async (parent, { username }) => {
