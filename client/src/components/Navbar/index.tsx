@@ -148,13 +148,13 @@ export function Navbar() {
                                             <Input type="password" />
                                         </FormControl>
                                         <Stack spacing={10}>
-                                            <Stack
+                                            {/* <Stack
                                                 direction={{ base: 'column', sm: 'row' }}
                                                 align={'start'}
                                                 justify={'space-between'}>
                                                 <Checkbox>Remember me</Checkbox>
                                                 <Link color={'blue.400'}>Forgot password?</Link>
-                                            </Stack>
+                                            </Stack> */}
                                             <Button
                                                 bg={'blue.400'}
                                                 color={'white'}
@@ -198,14 +198,8 @@ export function Navbar() {
                                     <Stack spacing={4}>
                                         <HStack>
                                             <Box>
-                                                <FormControl id="firstName" isRequired>
-                                                    <FormLabel>First Name</FormLabel>
-                                                    <Input type="text" />
-                                                </FormControl>
-                                            </Box>
-                                            <Box>
-                                                <FormControl id="lastName">
-                                                    <FormLabel>Last Name</FormLabel>
+                                                <FormControl id="username" isRequired>
+                                                    <FormLabel>Username</FormLabel>
                                                     <Input type="text" />
                                                 </FormControl>
                                             </Box>
@@ -242,9 +236,9 @@ export function Navbar() {
                                             </Button>
                                         </Stack>
                                         <Stack pt={6}>
-                                            <Text align={'center'}>
+                                            {/* <Text align={'center'}>
                                                 Already a user? <Link color={'blue.400'}>Login</Link>
-                                            </Text>
+                                            </Text> */}
                                         </Stack>
                                     </Stack>
                                 </Box>
