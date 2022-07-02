@@ -1,4 +1,6 @@
 import { ReactNode } from 'react';
+import { Link as ReachLink } from 'react-router-dom'
+
 import logo from '../../assets/camera.png'
 import {
   Box,
@@ -71,6 +73,7 @@ export function DashboardNav() {
               ))}
             </HStack>
             <Button
+              as={ReachLink} to='/newAlbum'
               variant={'solid'}
               colorScheme={'teal'}
               size={'sm'}
