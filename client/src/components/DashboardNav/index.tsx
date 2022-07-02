@@ -73,7 +73,7 @@ export function DashboardNav() {
               ))}
             </HStack>
             <Button
-              as={ReachLink} to='/newAlbum'
+              as={ReachLink} to='/NewAlbum'
               variant={'solid'}
               colorScheme={'teal'}
               size={'sm'}

@@ -1,6 +1,7 @@
 import DashboardNav from "../components/DashboardNav";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
+import CreateAlbum from "../components/CreateAlbum";
 
 
 import {
@@ -14,17 +15,15 @@ import {
 } from '@chakra-ui/react';
 
 
-const newAlbum = () => {
+
+const NewAlbum = () => {
     return (
         <main>
             <DashboardNav />
             <div>
                 <Flex>
                     <Sidebar children={undefined} />
-                    <VStack>
-                        
-                        
-                    </VStack>
+                    <CreateAlbum />
                 </Flex>
             </div>
             <Footer />
@@ -38,4 +37,4 @@ const newAlbum = () => {
     )
 }
 
-export default newAlbum;
+export default NewAlbum;
