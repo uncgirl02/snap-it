@@ -3,12 +3,12 @@
 ## Description
 
 ## Table of Contents
-*[Mock-up](# Mock-up)
-*[Deployment](# Deployment)
-*[Installation](# Installation)
-*[Usage](# Usage)
-*[Technologies](# Technologies)
-*[Contributor] (#Contributors)
+- [Mock-up](# Mock-up)
+- [Deployment](# Deployment)
+- [Installation](# Installation)
+- [Usage](# Usage)
+- [Technologies](# Technologies)
+- [Contributor] (#Contributors)
 
 ## Installation
 
