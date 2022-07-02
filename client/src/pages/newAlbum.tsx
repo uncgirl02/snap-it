@@ -5,13 +5,7 @@ import CreateAlbum from "../components/CreateAlbum";
 
 
 import {
-    Flex,
-    Heading,
-    Box,
-    Container,
-    HStack,
-    VStack,
-
+    Flex
 } from '@chakra-ui/react';
 
 
@@ -28,12 +22,6 @@ const NewAlbum = () => {
             </div>
             <Footer />
         </main>
-
-
-
-
-
-
     )
 }
 
