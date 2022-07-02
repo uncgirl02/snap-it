@@ -13,6 +13,7 @@ HStack,
 VStack,
 Center,
 Heading,
+Box,
  } from '@chakra-ui/react';
 import { graphqlSync } from 'graphql'
 
@@ -23,12 +24,15 @@ return (
     <main>
     <Navbar />
         <div>
-        <Flex>
-            <VStack>
-            <div>
-            <ImageSlider images={images}></ImageSlider>
-            </div> 
-            <Container maxW='container.xl' bg='blue.600' color='white' borderRadius='base'>
+            <Flex>
+              
+                <Container maxW='100%' bg='blue.600' color='white' borderRadius='base' p={10} ms={5} me={10}>
+                    <ImageSlider images={images}></ImageSlider>  
+                </Container>
+
+            </Flex>
+
+            <Box>
                 <Heading className='top-album-heading' justifyContent={'center'}>Top Albums of the Week</Heading>
                     <HStack>
                         <AlbumCard />
@@ -36,9 +40,9 @@ return (
                         <AlbumCard />
                         <AlbumCard />
                     </HStack>
-            </Container>
-            </VStack>
-        </Flex>
+            </Box>
+               
+      
         <Container>
             <Heading>Snap it. Share it. Done.</Heading>
             <Text>How it Works.</Text>

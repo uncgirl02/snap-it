@@ -23,21 +23,21 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 
-const Links = ['Edit Profile', 'Friend List', 'Log Out'];
+// const Links = ['Edit Profile', 'Friend List', 'Log Out'];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('teal.300', 'teal.300'),
-    }}
-    href={'#'}>
-    {children}
-  </Link>
-);
+// const NavLink = ({ children }: { children: ReactNode }) => (
+//   <Link
+//     px={2}
+//     py={1}
+//     rounded={'md'}
+//     _hover={{
+//       textDecoration: 'none',
+//       bg: useColorModeValue('teal.300', 'teal.300'),
+//     }}
+//     href={'#'}>
+//     {children}
+//   </Link>
+// );
 
 export function DashboardNav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -68,9 +68,42 @@ export function DashboardNav() {
               spacing={3}
               mr={3}
               display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
+              {/* {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
-              ))}
+              ))} */}
+              <Link
+                px={2}
+                py={1}
+                rounded={'md'}
+                _hover={{
+                textDecoration: 'none',
+                bg: useColorModeValue('teal.300', 'teal.300'),
+                }}
+                href={'#'}>
+                Edit Profile
+                </Link>
+                <Link
+                px={2}
+                py={1}
+                rounded={'md'}
+                _hover={{
+                textDecoration: 'none',
+                bg: useColorModeValue('teal.300', 'teal.300'),
+                }}
+                href={'#'}>
+                Friend List
+                </Link>
+                <Link
+                px={2}
+                py={1}
+                rounded={'md'}
+                _hover={{
+                textDecoration: 'none',
+                bg: useColorModeValue('teal.300', 'teal.300'),
+                }}
+                href={'#'}>
+                Log Out
+                </Link>
             </HStack>
             <Button
               as={ReachLink} to='/NewAlbum'
@@ -99,7 +132,7 @@ export function DashboardNav() {
           </Flex>
         </Flex>
 
-        {isOpen ? (
+        {/* {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {Links.map((link) => (
@@ -107,7 +140,7 @@ export function DashboardNav() {
               ))}
             </Stack>
           </Box>
-        ) : null}
+        ) : null} */}
       </Box>
     </>
   );

@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import "./style.css"
+import "../../style.css";
 import React from 'react'
 // import images from '../../assets/images'
 
@@ -11,7 +11,10 @@ import React from 'react'
 
 const ImageSlider = ({images}) => {
 
-const settings = {
+console.log(images);
+
+
+	const settings = {
 	infinite: true,
 	dots: true,
 	slidesToShow: 1,
@@ -23,7 +26,10 @@ autoplaySpeed: 2000,
 };
 return (
 
-	
+	<>
+	<div className="tag">
+		{/* <h1>Image Gallery</h1> */}
+	</div>
 	<div className="imgslider">
 		<Slider {...settings}>
 		{images.map((item) => (
@@ -33,6 +39,8 @@ return (
 		))}
 		</Slider>
 	</div>
+	</>
+
 )
 }
 export default ImageSlider;
