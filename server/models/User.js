@@ -20,6 +20,12 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
+    albums: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Album'
+      }
+    ],
     thoughts: [
       {
         type: Schema.Types.ObjectId,
@@ -27,11 +33,11 @@ const userSchema = new Schema(
       }
     ],
     friends: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'User'
-        }
-      ]
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }
+    ]
 },
 {
     toJSON: {

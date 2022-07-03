@@ -1,8 +1,21 @@
 const { User, Thought, Album } = require("../models");
-const { AuthenicationError } = require("apollo-server-express");
+const { AuthenicationError, AuthenticationError } = require("apollo-server-express");
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
+    me: async (parent, args, context) => {
+      if (context.user){
+
+        const userData = await User.findOne({})
+          .select('-__v -password')
+          .populate('thoughts')
+          .populate('friends')
+  
+          return (userData);
+      }
+      throw new AuthenicationError('Not Logged In');
+    },
     users: async (parent, args, context) => {
       if (context.user) {
         return await User.findOne({ _id: context.user._id })
@@ -37,8 +50,26 @@ const resolvers = {
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
+      const token = signToken(user);
 
-      return user;
+      return {token, user};
+    },
+    login: async (parent, {email, password}) => {
+      const user = await User.findOne({email});
+
+      if(!user) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if(!correctPw){
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(user);
+
+      return {token, user};
     },
     addThought: async (parent, args, context) => {
       if (context.user) {
@@ -83,17 +114,20 @@ const resolvers = {
     },
     addAlbum: async (parent, args, context) => {
       if (context.user) {
-        const album = await Album.create({...args, albumName: context.album.albumName})
+        const album = await Album.create({
+          ...args,
+          username: context.user.username
+        })
 
         await User.findByIdAndUpdate(
-          {_id: context.user.id},
+          {_id: context.user._id},
           {$push: {albums: album._id}},
           {new: true}
         );
 
         return album;
       }
-      throw new AuthenicationError('You need to be logged in to add an album')
+      throw new AuthenticationError('You need to be logged in to add an album');
     }
   }
 };
