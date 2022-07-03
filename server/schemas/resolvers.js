@@ -114,17 +114,20 @@ const resolvers = {
     },
     addAlbum: async (parent, args, context) => {
       if (context.user) {
-        const album = await Album.create({...args, albumName: context.album.albumName})
+        const album = await Album.create({
+          ...args,
+          username: context.user.username
+        })
 
         await User.findByIdAndUpdate(
-          {_id: context.user.id},
+          {_id: context.user._id},
           {$push: {albums: album._id}},
           {new: true}
         );
 
         return album;
       }
-      throw new AuthenicationError('You need to be logged in to add an album')
+      throw new AuthenticationError('You need to be logged in to add an album');
     }
   }
 };
