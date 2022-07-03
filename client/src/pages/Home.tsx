@@ -1,24 +1,17 @@
-import Navbar from '../components/Navbar'
-import AlbumCard from '../components/AlbumCard'
-import Testimonials from '../components/Testimonials'
-import HowItWorks from '../components/HowItWorks'
-import Footer from '../components/Footer'
-import ImageSlider from '../components/ImageSlider'
-import images from '../assets/images'
 import {
-Flex,
-Container,
-Text,
-HStack,
-VStack,
-Center,
-Heading,
-Box,
- } from '@chakra-ui/react';
-import { graphqlSync } from 'graphql'
+    Box, Container, Flex, Heading, HStack, Text
+} from '@chakra-ui/react'
+import images from '../assets/images'
+import AlbumCard from '../components/AlbumCard'
+import Footer from '../components/Footer'
+import HowItWorks from '../components/HowItWorks'
+import ImageSlider from '../components/ImageSlider'
+import Navbar from '../components/Navbar'
+import Testimonials from '../components/Testimonials'
 
 
-const Home = () => {
+export default function Home ()  {
+
 return ( 
     
     <main>
@@ -56,4 +49,3 @@ return (
 )
 }
 
-export default Home;
