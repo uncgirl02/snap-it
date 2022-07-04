@@ -24,6 +24,8 @@ import SimpleFileUpload, {
 } from "react-simple-file-upload";
 import React, { useState } from "react";
 import { FiUpload } from "react-icons/fi";
+import { useMutation } from "@apollo/client";
+import { ADD_ALBUM } from "../../utils/mutations";
 
 export function CreateAlbum() {
   const [file, setFile] = useState();
@@ -33,6 +35,29 @@ export function CreateAlbum() {
     console.log(url)
     setUploadedImages([...uploadedImages, url])
   }
+
+  const [albumName, setAlbumName] = useState("");
+  const [isPublic, setIsPublic] = useState();
+  const [friendEmail, setFriendEmail] = useState("");
+
+  const [addAlbumMutation] = useMutation(ADD_ALBUM);
+  const [isSending, setIsSending] = useState(false);
+
+  const sendCreateAlbumRequest = () => {
+    // console.log(`Album Name: ${albumName}...isPublic: ${isPublic}...Photo: ${uploadedImages}...Friend Email: ${friendEmail}`)
+    if (isSending) return;
+    setIsSending(true);
+
+    addAlbumMutation({
+      variables:{albumName: albumName, isPublic: isPublic, photos: uploadedImages}
+    }).then(
+      (result) => {
+        console.log("result", result.data)
+      }
+    );
+
+    setIsSending(false);
+  };
 
   return (
     <Flex
@@ -62,6 +87,7 @@ export function CreateAlbum() {
             placeholder="Album Name"
             _placeholder={{ color: "gray.500" }}
             type="text"
+            onChange={(event)=> setAlbumName(event.currentTarget.value)}
           />
         </FormControl>
         <Stack direction={["column", "row"]} spacing={6}>
@@ -102,14 +128,14 @@ export function CreateAlbum() {
                 </Box>
               ))
             ) : (
-              <p>Your uploaded images will appear here!</p>
+              <p>Upload up to 10 images and they will appear here!</p>
             )}
         </Stack>
         <FormControl>
           <FormLabel htmlFor="private" mb="0" mt={150}>
             Make Private?
           </FormLabel>
-          <Switch id="private" />
+          <Switch id="private" onChange={(event)=> setIsPublic(event.currentTarget.checked)}/>
         </FormControl>
         <FormControl>
           <FormLabel>Invite a Friend to View?</FormLabel>
@@ -118,6 +144,7 @@ export function CreateAlbum() {
             placeholder="Friend's E-mail Address"
             _placeholder={{ color: "gray.500" }}
             type="text"
+            onChange={(event)=> setFriendEmail(event.currentTarget.value)}
           />
         </FormControl>
 
@@ -138,7 +165,8 @@ export function CreateAlbum() {
             w="fit-content"
             _hover={{
               bg: "blue.500",
-            }}>
+            }}
+            onClick={sendCreateAlbumRequest}>
             Create My Album
           </Button>
         </Stack>
