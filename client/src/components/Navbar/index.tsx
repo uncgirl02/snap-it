@@ -1,4 +1,4 @@
-import React, { useState,  } from 'react';
+import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -48,7 +48,6 @@ export default function Navbar() {
     );
     if (isSending) return;
     setIsSending(true);
-    // let result =  myMutation({ variables: { username: username, email: email, password: password } });
 
     signupMutation({
       variables: { username: username, email: email, password: password },
@@ -74,7 +73,8 @@ export default function Navbar() {
     if (isSending) return;
     setIsSending(true);
 
-    signinMutation({ variables: { email: email, password: password } }).then(
+    signinMutation({ variables: { email: email, password: password } 
+    }).then(
       (result) => {
         console.log("result", result.data.addUser);
         setSignupModal(false);
@@ -89,7 +89,6 @@ export default function Navbar() {
     );
 
     setIsSending(false);
-    // console.log("result",result)
   };
 
   const handleToggleSignupModal = () => {
@@ -158,7 +157,7 @@ export default function Navbar() {
             color={"white"}
             bg={"pink.400"}
             _hover={{
-              bg: "pink.300",
+              bg: "pink.200",
             }}
           >
             Sign Up
@@ -271,39 +270,39 @@ export default function Navbar() {
                                                         {showPassword ? <ViewIcon /> : <ViewOffIcon />}
                                                     </Button>
                                                 </InputRightElement> */}
-                                            </InputGroup>
-                                        </FormControl>
-                                        <Stack spacing={10} pt={2}>
-                                            <Button
-                                                loadingText="Submitting"
-                                                size="lg"
-                                                bg={'blue.400'}
-                                                color={'white'}
-                                                _hover={{
-                                                    bg: 'blue.500',
-                                                }}>
-                                                Sign up
-                                            </Button>
-                                        </Stack>
-                                        <Stack pt={6}>
-                                            {/* <Text align={'center'}>
-                                                Already a user? <Link color={'blue.400'}>Login</Link>
-                                            </Text> */}
-                                        </Stack>
-                                    </Stack>
-                                </Box>
-                            </Stack>
-                        </Flex>
-                    </ModalContent>
-                </ModalOverlay>
-            </Modal>
-
-
-
-
-
-        </Box >
-    )
+                      </InputGroup>
+                    </FormControl>
+                    <Stack spacing={10} pt={2}>
+                      <Button
+                        loadingText="Submitting"
+                        size="lg"
+                        bg={"blue.400"}
+                        color={"white"}
+                        _hover={{
+                          bg: "blue.500",
+                        }}
+                        onClick={sendSignupRequest}
+                      >
+                        Sign up
+                      </Button>
+                    </Stack>
+                    {error && <div>SIGN UP FAILED!!</div>}
+                    {/* <Stack pt={6}>
+                                            <Text align={'center'}>
+                                                Already a user? 
+											<Link to={'/'}></Link>
+												
+                                            </Text>
+                                        </Stack> */}
+                  </Stack>
+                </Box>
+              </Stack>
+            </Flex>
+          </ModalContent>
+        </ModalOverlay>
+      </Modal>
+    </Box>
+  );
 }
 
 
