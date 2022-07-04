@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import logo from '../../assets/camera.png';
 import {LOGIN_USER, ADD_USER} from '../../utils/mutations';
-import Auth from '../../utils/auth';
+
 
 import {
     CloseIcon, HamburgerIcon
@@ -55,8 +55,7 @@ export default function Navbar() {
       (result) => {
         console.log("result", result.data.addUser);
         setSignupModal(false);
-        // navigate("/dashboard");
-		Auth.login(result.data.addUser.token)
+        navigate("/dashboard");
       },
       function (error) {
         console.log("error", error.message);
@@ -78,8 +77,7 @@ export default function Navbar() {
       (result) => {
         console.log("result", result.data.addUser);
         setSignupModal(false);
-        // navigate("/dashboard");
-		Auth.login(result.data.login.token)
+        navigate("/dashboard");
       },
       function (error) {
         console.log("error", error.message);
@@ -165,103 +163,134 @@ export default function Navbar() {
         </Stack>
       </Flex>
 
-      
-
-
-            <Modal isOpen={isSignInOpen} onClose={onSignInClose}>
-                <ModalOverlay>
-                    <ModalContent>
-                        <Flex
-                            align={'center'}
-                            justify={'center'}
-                            bg={useColorModeValue('white', 'gray.800')}>
-                            <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-                                <Stack align={'center'}>
-                                    <Heading fontSize={'4xl'}>Sign in to your account</Heading>
-                                    <Text fontSize={'lg'} color={'gray.600'}>
-                                    to enjoy creating and viewing photo albums
-                                    </Text>
-                                </Stack>
-                                <Box
-                                    rounded={'lg'}
-                                    bg={useColorModeValue('white', 'gray.700')}
-                                    boxShadow={'2xl'}
-                                    p={8}>
-                                    <Stack spacing={4}>
-                                        <FormControl id="email">
-                                            <FormLabel>Email address</FormLabel>
-                                            <Input type="email" />
-                                        </FormControl>
-                                        <FormControl id="password">
-                                            <FormLabel>Password</FormLabel>
-                                            <Input type="password" />
-                                        </FormControl>
-                                        <Stack spacing={10}>
-                                            {/* <Stack
+      <Modal isOpen={isSignInOpen} onClose={onSignInClose}>
+        <ModalOverlay>
+          <ModalContent>
+            <Flex
+              align={"center"}
+              justify={"center"}
+              bg={useColorModeValue("white", "gray.800")}
+            >
+              <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+                <Stack align={"center"}>
+                  <Heading fontSize={"4xl"}>Sign in to your account</Heading>
+                  <Text fontSize={"lg"} color={"gray.600"}>
+                    to enjoy creating and viewing photo albums
+                  </Text>
+                </Stack>
+                <Box
+                  rounded={"lg"}
+                  bg={useColorModeValue("white", "gray.700")}
+                  boxShadow={"2xl"}
+                  p={8}
+                >
+                  <Stack spacing={4}>
+                    <FormControl id="email">
+                      <FormLabel>Email address</FormLabel>
+                      <Input
+                        type="email"
+                        name="email"
+                        onChange={(event) =>
+                          setEmail(event.currentTarget.value)
+                        }
+                      />
+                    </FormControl>
+                    <FormControl id="password">
+                      <FormLabel>Password</FormLabel>
+                      <Input
+                        type="password"
+                        name="password"
+                        onChange={(event) =>
+                          setPassword(event.currentTarget.value)
+                        }
+                      />
+                    </FormControl>
+                    <Stack spacing={10}>
+                      {/* <Stack
                                                 direction={{ base: 'column', sm: 'row' }}
                                                 align={'start'}
                                                 justify={'space-between'}>
                                                 <Checkbox>Remember me</Checkbox>
-                                                <Link color={'blue.400'}>Forgot password?</Link>
+												<Link to={'/'}></Link>
                                             </Stack> */}
-                                            <Button
-                                                bg={'blue.400'}
-                                                color={'white'}
-                                                _hover={{
-                                                    bg: 'blue.500',
-                                                }}>
-                                                Sign in
-                                            </Button>
-                                        </Stack>
-                                    </Stack>
-                                </Box>
-                            </Stack>
-                        </Flex>
-                    </ModalContent>
-                </ModalOverlay>
-            </Modal>
+                      <Button
+                        bg={"blue.400"}
+                        color={"white"}
+                        _hover={{
+                          bg: "blue.500",
+                        }}
+                        onClick={sendSigninpRequest}
+                      >
+                        Sign in
+                      </Button>
+                    </Stack>
+                  </Stack>
+                </Box>
+              </Stack>
+            </Flex>
+          </ModalContent>
+        </ModalOverlay>
+      </Modal>
 
-
-
-            <Modal isOpen={isSignUpOpen} onClose={onSignUpClose}>
-                <ModalOverlay>
-                    <ModalContent>
-                        <Flex
-                            align={'center'}
-                            justify={'center'}
-                            bg={useColorModeValue('gray.50', 'gray.800')}>
-                            <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-                                <Stack align={'center'}>
-                                    <Heading fontSize={'4xl'} textAlign={'center'}>
-                                        Sign up
-                                    </Heading>
-                                    <Text fontSize={'lg'} color={'gray.600'}>
-                                    to enjoy creating and viewing photo albums
-                                    </Text>
-                                </Stack>
-                                <Box
-                                    rounded={'lg'}
-                                    bg={useColorModeValue('white', 'gray.700')}
-                                    boxShadow={'lg'}
-                                    p={8}>
-                                    <Stack spacing={4}>
-                                        <HStack>
-                                            <Box>
-                                                <FormControl id="username" isRequired>
-                                                    <FormLabel>Username</FormLabel>
-                                                    <Input type="text" />
-                                                </FormControl>
-                                            </Box>
-                                        </HStack>
-                                        <FormControl id="email" isRequired>
-                                            <FormLabel>Email address</FormLabel>
-                                            <Input type="email" />
-                                        </FormControl>
-                                        <FormControl id="password" isRequired>
-                                            <FormLabel>Password</FormLabel>
-                                            <InputGroup>
-                                                <Input type={'password'} />
-                                                {/* <InputRightElement h={'full'}>
+      <Modal isOpen={signupModal} onClose={handleToggleSignupModal}>
+        <ModalOverlay>
+          <ModalContent>
+            <Flex
+              align={"center"}
+              justify={"center"}
+              bg={useColorModeValue("gray.50", "gray.800")}
+            >
+              <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+                <Stack align={"center"}>
+                  <Heading fontSize={"4xl"} textAlign={"center"}>
+                    Sign up
+                  </Heading>
+                  <Text fontSize={"lg"} color={"gray.600"}>
+                    to enjoy all of our cool features ✌️
+                  </Text>
+                </Stack>
+                <Box
+                  rounded={"lg"}
+                  bg={useColorModeValue("white", "gray.700")}
+                  boxShadow={"lg"}
+                  p={8}
+                >
+                  <Stack spacing={4}>
+                    <HStack>
+                      <Box>
+                        <FormControl id="username" isRequired>
+                          <FormLabel>Username</FormLabel>
+                          <Input
+                            type="text"
+                            name="username"
+                            onChange={(event) =>
+                              setUserName(event.currentTarget.value)
+                            }
+                          />
+                        </FormControl>
+                      </Box>
+                    </HStack>
+                    <FormControl id="email" isRequired>
+                      <FormLabel>Email address</FormLabel>
+                      <Input
+                        type="email"
+                        name="email"
+                        onChange={(event) =>
+                          setEmail(event.currentTarget.value)
+                        }
+                      />
+                    </FormControl>
+                    <FormControl id="password" isRequired>
+                      <FormLabel>Password</FormLabel>
+                      <InputGroup>
+                        <Input
+                          type="password"
+                          name="password"
+                          onChange={(event) =>
+                            setPassword(event.currentTarget.value)
+                          }
+                        />
+                        {/* <InputRightElement h={'full'}>
                                                     <Button
                                                         variant={'ghost'}
                                                         onClick={() =>
@@ -304,5 +333,3 @@ export default function Navbar() {
     </Box>
   );
 }
-
-
