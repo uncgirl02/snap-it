@@ -8,16 +8,16 @@ const AlbumSchema = new Schema({
         type: String
     },
     createdBy: {
-        type: String
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     },
     createdAt: {
         type: Date,
         default: Date.now,
         get: timestamp => dateFormat(timestamp)
     },
-    username: {
-        type: String,
-        required: true
+    isPublic: {
+        type: Boolean
     },
     photos: []
 },
