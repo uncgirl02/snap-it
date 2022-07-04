@@ -21,6 +21,8 @@ Snap It! is a photo-album sharing website where users can create public or priva
 
 ## Tests
 ![GitHub license](https://img.shields.io/badge/test-100%25-success)
+
+![Apollo GraphQL](https://img.shields.io/badge/-Apollo%20GraphQL-311C87?style=plastic&logo=apollo-graphql&logoColor=white)
 ## Technologies
 
 ![Javascript](https://img.shields.io/badge/-JavaScript-f7df1e?style=plastic&logo=javascript&logoColor=black)
@@ -36,6 +38,10 @@ Snap It! is a photo-album sharing website where users can create public or priva
 ![Heroku](https://img.shields.io/badge/-Heroku-430098?style=plastic&logo=heroku&logoColor=white)
 
 ![Chakra](https://img.shields.io/badge/-Chakra%20U1-319795?style=plastic&logo=chakra-ui&logoColor=white)
+
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=plastic&logo=typescript&logoColor=white)
+
+![Express](https://img.shields.io/badge/-Express-000000?style=plastic&logo=Express&logoColor=white)
 
 ## Contributors
 
