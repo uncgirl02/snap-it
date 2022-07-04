@@ -42,7 +42,7 @@ import {
             <Box display="flex" alignItems="baseline">
               {data.isNew && (
                 <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
-                  Top Album
+                  Username
                 </Badge>
               )}
             </Box>
@@ -53,7 +53,8 @@ import {
                 as="h4"
                 lineHeight="tight"
                 >
-                {data.name}
+                Album Name
+                {/* {data.name} */}
               </Box>
             </Flex>
   
@@ -61,7 +62,7 @@ import {
               <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
                 <Box as="span" color={'gray.600'} fontSize="lg">
                 </Box>
-                Album Name
+                Category
                 {/* {data.price.toFixed(2)} */}
               </Box>
             </Flex>

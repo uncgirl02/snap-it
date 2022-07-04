@@ -102,11 +102,6 @@ export function CreateAlbum() {
           />
           {file && <p> Uploaded: {file}</p>}
         </Stack>
-          <Center maxW={"md"}>
-            <Button leftIcon={<FiUpload />} w="full">
-              Upload Images
-            </Button>
-          </Center>
         {/* <SimpleGrid>
           <List>
             {uploadedImages.length ? (
