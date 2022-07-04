@@ -80,7 +80,7 @@ export default function Navbar() {
         console.log("result", result.data.addUser);
         setSignupModal(false);
         // navigate("/dashboard");
-		Auth.login(result.data.addUser.token)
+		Auth.login(result.data.login.token)
       },
       function (error) {
         console.log("error", error.message);
