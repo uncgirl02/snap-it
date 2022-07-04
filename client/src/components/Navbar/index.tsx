@@ -5,6 +5,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/camera.png';
 import {LOGIN_USER, ADD_USER} from '../../utils/mutations';
 
+import Auth from '../../utils/auth';
+
 
 import {
     CloseIcon, HamburgerIcon
@@ -53,7 +55,8 @@ export default function Navbar() {
       variables: { username: username, email: email, password: password },
     }).then(
       (result) => {
-        console.log("result", result.data.addUser);
+        console.log("result", result.data.login.token);
+        Auth.login(result.data.login.token)
         setSignupModal(false);
         navigate("/dashboard");
       },
@@ -75,7 +78,8 @@ export default function Navbar() {
     signinMutation({ variables: { email: email, password: password } 
     }).then(
       (result) => {
-        console.log("result", result.data.addUser);
+        console.log("result", result.data.login.token);
+        Auth.login(result.data.login.token)
         setSignupModal(false);
         navigate("/dashboard");
       },
