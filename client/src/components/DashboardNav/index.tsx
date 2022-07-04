@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Link as ReachLink } from 'react-router-dom'
+import Auth from '../../utils/auth'
 
 import logo from '../../assets/camera.png'
 import {
@@ -46,6 +47,10 @@ import { HamburgerIcon, CloseIcon, AddIcon, SmallCloseIcon } from '@chakra-ui/ic
 //     {children}
 //   </Link>
 // );
+
+const logout = () => {
+    Auth.logout();
+}
 
 export function DashboardNav() {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -111,7 +116,7 @@ export function DashboardNav() {
                                     textDecoration: 'none',
                                     bg: useColorModeValue('teal.300', 'teal.300'),
                                 }}
-                                href={'#'}>
+                                onClick={logout}>
                                 Log Out
                             </Link>
                         </HStack>

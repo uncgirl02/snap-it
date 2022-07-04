@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import logo from '../../assets/camera.png';
 import {LOGIN_USER, ADD_USER} from '../../utils/mutations';
-
+import Auth from '../../utils/auth';
 
 import {
     CloseIcon, HamburgerIcon
@@ -56,7 +56,8 @@ export default function Navbar() {
       (result) => {
         console.log("result", result.data.addUser);
         setSignupModal(false);
-        navigate("/dashboard");
+        // navigate("/dashboard");
+		Auth.login(result.data.addUser.token)
       },
       function (error) {
         console.log("error", error.message);
@@ -78,7 +79,8 @@ export default function Navbar() {
       (result) => {
         console.log("result", result.data.addUser);
         setSignupModal(false);
-        navigate("/dashboard");
+        // navigate("/dashboard");
+		Auth.login(result.data.addUser.token)
       },
       function (error) {
         console.log("error", error.message);
