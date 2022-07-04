@@ -1,4 +1,4 @@
-import React, { useState,  } from 'react';
+import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -48,7 +48,6 @@ export default function Navbar() {
     );
     if (isSending) return;
     setIsSending(true);
-    // let result =  myMutation({ variables: { username: username, email: email, password: password } });
 
     signupMutation({
       variables: { username: username, email: email, password: password },
@@ -66,7 +65,6 @@ export default function Navbar() {
     );
 
     setIsSending(false);
-    // console.log("result",result)
   };
 
   const sendSigninpRequest = () => {
@@ -74,7 +72,8 @@ export default function Navbar() {
     if (isSending) return;
     setIsSending(true);
 
-    signinMutation({ variables: { email: email, password: password } }).then(
+    signinMutation({ variables: { email: email, password: password } 
+    }).then(
       (result) => {
         console.log("result", result.data.addUser);
         setSignupModal(false);
@@ -88,7 +87,6 @@ export default function Navbar() {
     );
 
     setIsSending(false);
-    // console.log("result",result)
   };
 
   const handleToggleSignupModal = () => {
@@ -157,7 +155,7 @@ export default function Navbar() {
             color={"white"}
             bg={"pink.400"}
             _hover={{
-              bg: "pink.300",
+              bg: "pink.200",
             }}
           >
             Sign Up
@@ -317,7 +315,7 @@ export default function Navbar() {
                         Sign up
                       </Button>
                     </Stack>
-                    {error && <div>Sign up failed</div>}
+                    {error && <div>SIGN UP FAILED!!</div>}
                     {/* <Stack pt={6}>
                                             <Text align={'center'}>
                                                 Already a user? 
