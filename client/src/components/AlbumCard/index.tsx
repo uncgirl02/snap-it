@@ -2,18 +2,12 @@ import React from 'react'
 
 import {
     Flex,
-    Circle,
     Box,
     Image,
     Badge,
     useColorModeValue,
-    Icon,
-    chakra,
-    Tooltip,
   } from '@chakra-ui/react';
-  import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
-  import { FiShoppingCart } from 'react-icons/fi';
-import { graphqlSync } from 'graphql';
+
   
   const data = {
     isNew: true,

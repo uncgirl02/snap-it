@@ -11,7 +11,6 @@ import {
     Center,
     Switch,
   } from '@chakra-ui/react';
-  import { SmallCloseIcon } from '@chakra-ui/icons';
   import {
     FiUpload
   } from 'react-icons/fi';
@@ -70,6 +69,8 @@ import {
 
           <Stack spacing={6} direction={['column', 'row']}>
             <Button
+              as='a'
+              href='/dashboard'
               bg={'red.400'}
               color={'white'}
               w="fit-content"

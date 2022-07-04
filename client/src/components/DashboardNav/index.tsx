@@ -6,23 +6,16 @@ import logo from '../../assets/camera.png'
 import {
     Box,
     Flex,
-    Avatar,
     HStack,
     Link,
     IconButton,
     Button,
     Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    MenuDivider,
     useDisclosure,
     useColorModeValue,
     Stack,
     Image,
     Heading,
-    AvatarBadge,
-    Center,
     FormControl,
     FormLabel,
     Input,
@@ -63,6 +56,7 @@ export function DashboardNav() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { isOpen: isProfileOpen, onOpen: onProfileOpen, onClose: onProfileClose } = useDisclosure();
     const { isOpen: isFriendOpen, onOpen: onFriendOpen, onClose: onFriendClose } = useDisclosure();
+    const { isOpen: isAddFriendOpen, onOpen: onAddFriendOpen, onClose: onAddFriendClose } = useDisclosure();
 
     return (
         <>
@@ -93,6 +87,17 @@ export function DashboardNav() {
                             {/* {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
               ))} */}
+                            <Link
+                                px={2}
+                                py={1}
+                                rounded={'md'}
+                                _hover={{
+                                    textDecoration: 'none',
+                                    bg: useColorModeValue('teal.300', 'teal.300'),
+                                }}
+                                onClick={onAddFriendOpen}>
+                                Add Friend
+                            </Link>
                             <Link
                                 px={2}
                                 py={1}
@@ -166,6 +171,61 @@ export function DashboardNav() {
             </Box>
 
 
+            <Modal isOpen={isAddFriendOpen} onClose={onAddFriendClose}>
+                <ModalOverlay>
+                    <ModalContent>
+                        <Flex
+                            align={'center'}
+                            justify={'center'}
+                            bg={useColorModeValue('gray.50', 'gray.800')}>
+                            <Stack
+                                spacing={4}
+                                w={'full'}
+                                maxW={'md'}
+                                bg={useColorModeValue('white', 'gray.700')}
+                                rounded={'xl'}
+                                boxShadow={'lg'}
+                                p={6}
+                                my={12}>
+                                <Heading lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>
+                                    Add Friend
+                                </Heading>
+                                <FormControl id="FriendEmail" isRequired>
+                                    <FormLabel>Enter Friend's E-mail Address</FormLabel>
+                                    <Input
+                                        placeholder="Friend's e-mail"
+                                        _placeholder={{ color: 'gray.500' }}
+                                        type="text"
+                                    />
+                                </FormControl>
+                                <Stack spacing={6} direction={['column', 'row']}>
+                                    <Button
+                                        onClick={onAddFriendClose}
+                                        bg={'red.400'}
+                                        color={'white'}
+                                        w="full"
+                                        _hover={{
+                                            bg: 'red.500',
+                                        }}>
+                                        Cancel
+                                    </Button>
+                                    <Button
+                                        bg={'blue.400'}
+                                        color={'white'}
+                                        w="full"
+                                        _hover={{
+                                            bg: 'blue.500',
+                                        }}>
+                                        Submit
+                                    </Button>
+                                </Stack>
+                            </Stack>
+                        </Flex>
+                    </ModalContent>
+                </ModalOverlay>
+            </Modal>
+
+
             <Modal isOpen={isProfileOpen} onClose={onProfileClose}>
                 <ModalOverlay>
                     <ModalContent>
@@ -211,6 +271,7 @@ export function DashboardNav() {
                                 </FormControl>
                                 <Stack spacing={6} direction={['column', 'row']}>
                                     <Button
+                                        onClick={onProfileClose}
                                         bg={'red.400'}
                                         color={'white'}
                                         w="full"
@@ -235,7 +296,7 @@ export function DashboardNav() {
                 </ModalOverlay>
             </Modal>
 
-            <Drawer
+        <Drawer
           isOpen={isFriendOpen}
           placement='right'
           onClose={onFriendClose}
