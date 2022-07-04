@@ -167,134 +167,103 @@ export default function Navbar() {
         </Stack>
       </Flex>
 
-      <Modal isOpen={isSignInOpen} onClose={onSignInClose}>
-        <ModalOverlay>
-          <ModalContent>
-            <Flex
-              align={"center"}
-              justify={"center"}
-              bg={useColorModeValue("white", "gray.800")}
-            >
-              <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-                <Stack align={"center"}>
-                  <Heading fontSize={"4xl"}>Sign in to your account</Heading>
-                  <Text fontSize={"lg"} color={"gray.600"}>
-                    to enjoy creating and viewing photo albums
-                  </Text>
-                </Stack>
-                <Box
-                  rounded={"lg"}
-                  bg={useColorModeValue("white", "gray.700")}
-                  boxShadow={"2xl"}
-                  p={8}
-                >
-                  <Stack spacing={4}>
-                    <FormControl id="email">
-                      <FormLabel>Email address</FormLabel>
-                      <Input
-                        type="email"
-                        name="email"
-                        onChange={(event) =>
-                          setEmail(event.currentTarget.value)
-                        }
-                      />
-                    </FormControl>
-                    <FormControl id="password">
-                      <FormLabel>Password</FormLabel>
-                      <Input
-                        type="password"
-                        name="password"
-                        onChange={(event) =>
-                          setPassword(event.currentTarget.value)
-                        }
-                      />
-                    </FormControl>
-                    <Stack spacing={10}>
-                      {/* <Stack
+      
+
+
+            <Modal isOpen={isSignInOpen} onClose={onSignInClose}>
+                <ModalOverlay>
+                    <ModalContent>
+                        <Flex
+                            align={'center'}
+                            justify={'center'}
+                            bg={useColorModeValue('white', 'gray.800')}>
+                            <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+                                <Stack align={'center'}>
+                                    <Heading fontSize={'4xl'}>Sign in to your account</Heading>
+                                    <Text fontSize={'lg'} color={'gray.600'}>
+                                    to enjoy creating and viewing photo albums
+                                    </Text>
+                                </Stack>
+                                <Box
+                                    rounded={'lg'}
+                                    bg={useColorModeValue('white', 'gray.700')}
+                                    boxShadow={'2xl'}
+                                    p={8}>
+                                    <Stack spacing={4}>
+                                        <FormControl id="email">
+                                            <FormLabel>Email address</FormLabel>
+                                            <Input type="email" />
+                                        </FormControl>
+                                        <FormControl id="password">
+                                            <FormLabel>Password</FormLabel>
+                                            <Input type="password" />
+                                        </FormControl>
+                                        <Stack spacing={10}>
+                                            {/* <Stack
                                                 direction={{ base: 'column', sm: 'row' }}
                                                 align={'start'}
                                                 justify={'space-between'}>
                                                 <Checkbox>Remember me</Checkbox>
-												<Link to={'/'}></Link>
+                                                <Link color={'blue.400'}>Forgot password?</Link>
                                             </Stack> */}
-                      <Button
-                        bg={"blue.400"}
-                        color={"white"}
-                        _hover={{
-                          bg: "blue.500",
-                        }}
-                        onClick={sendSigninpRequest}
-                      >
-                        Sign in
-                      </Button>
-                    </Stack>
-                  </Stack>
-                </Box>
-              </Stack>
-            </Flex>
-          </ModalContent>
-        </ModalOverlay>
-      </Modal>
+                                            <Button
+                                                bg={'blue.400'}
+                                                color={'white'}
+                                                _hover={{
+                                                    bg: 'blue.500',
+                                                }}>
+                                                Sign in
+                                            </Button>
+                                        </Stack>
+                                    </Stack>
+                                </Box>
+                            </Stack>
+                        </Flex>
+                    </ModalContent>
+                </ModalOverlay>
+            </Modal>
 
-      <Modal isOpen={signupModal} onClose={handleToggleSignupModal}>
-        <ModalOverlay>
-          <ModalContent>
-            <Flex
-              align={"center"}
-              justify={"center"}
-              bg={useColorModeValue("gray.50", "gray.800")}
-            >
-              <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-                <Stack align={"center"}>
-                  <Heading fontSize={"4xl"} textAlign={"center"}>
-                    Sign up
-                  </Heading>
-                  <Text fontSize={"lg"} color={"gray.600"}>
-                    to enjoy all of our cool features ✌️
-                  </Text>
-                </Stack>
-                <Box
-                  rounded={"lg"}
-                  bg={useColorModeValue("white", "gray.700")}
-                  boxShadow={"lg"}
-                  p={8}
-                >
-                  <Stack spacing={4}>
-                    <HStack>
-                      <Box>
-                        <FormControl id="username" isRequired>
-                          <FormLabel>Username</FormLabel>
-                          <Input
-                            type="text"
-                            name="username"
-                            onChange={(event) =>
-                              setUserName(event.currentTarget.value)
-                            }
-                          />
-                        </FormControl>
-                      </Box>
-                    </HStack>
-                    <FormControl id="email" isRequired>
-                      <FormLabel>Email address</FormLabel>
-                      <Input
-                        type="email"
-                        name="email"
-                        onChange={(event) =>
-                          setEmail(event.currentTarget.value)
-                        }
-                      />
-                    </FormControl>
-                    <FormControl id="password" isRequired>
-                      <FormLabel>Password</FormLabel>
-                      <InputGroup>
-                        <Input
-                          type="password"
-                          name="password"
-                          onChange={(event) =>
-                            setPassword(event.currentTarget.value)
-                          }
-                        />
-                        {/* <InputRightElement h={'full'}>
+
+
+            <Modal isOpen={isSignUpOpen} onClose={onSignUpClose}>
+                <ModalOverlay>
+                    <ModalContent>
+                        <Flex
+                            align={'center'}
+                            justify={'center'}
+                            bg={useColorModeValue('gray.50', 'gray.800')}>
+                            <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+                                <Stack align={'center'}>
+                                    <Heading fontSize={'4xl'} textAlign={'center'}>
+                                        Sign up
+                                    </Heading>
+                                    <Text fontSize={'lg'} color={'gray.600'}>
+                                    to enjoy creating and viewing photo albums
+                                    </Text>
+                                </Stack>
+                                <Box
+                                    rounded={'lg'}
+                                    bg={useColorModeValue('white', 'gray.700')}
+                                    boxShadow={'lg'}
+                                    p={8}>
+                                    <Stack spacing={4}>
+                                        <HStack>
+                                            <Box>
+                                                <FormControl id="username" isRequired>
+                                                    <FormLabel>Username</FormLabel>
+                                                    <Input type="text" />
+                                                </FormControl>
+                                            </Box>
+                                        </HStack>
+                                        <FormControl id="email" isRequired>
+                                            <FormLabel>Email address</FormLabel>
+                                            <Input type="email" />
+                                        </FormControl>
+                                        <FormControl id="password" isRequired>
+                                            <FormLabel>Password</FormLabel>
+                                            <InputGroup>
+                                                <Input type={'password'} />
+                                                {/* <InputRightElement h={'full'}>
                                                     <Button
                                                         variant={'ghost'}
                                                         onClick={() =>
@@ -303,39 +272,39 @@ export default function Navbar() {
                                                         {showPassword ? <ViewIcon /> : <ViewOffIcon />}
                                                     </Button>
                                                 </InputRightElement> */}
-                      </InputGroup>
-                    </FormControl>
-                    <Stack spacing={10} pt={2}>
-                      <Button
-                        loadingText="Submitting"
-                        size="lg"
-                        bg={"blue.400"}
-                        color={"white"}
-                        _hover={{
-                          bg: "blue.500",
-                        }}
-                        onClick={sendSignupRequest}
-                      >
-                        Sign up
-                      </Button>
-                    </Stack>
-                    {error && <div>Sign up failed</div>}
-                    {/* <Stack pt={6}>
-                                            <Text align={'center'}>
-                                                Already a user? 
-											<Link to={'/'}></Link>
-												
-                                            </Text>
-                                        </Stack> */}
-                  </Stack>
-                </Box>
-              </Stack>
-            </Flex>
-          </ModalContent>
-        </ModalOverlay>
-      </Modal>
-    </Box>
-  );
+                                            </InputGroup>
+                                        </FormControl>
+                                        <Stack spacing={10} pt={2}>
+                                            <Button
+                                                loadingText="Submitting"
+                                                size="lg"
+                                                bg={'blue.400'}
+                                                color={'white'}
+                                                _hover={{
+                                                    bg: 'blue.500',
+                                                }}>
+                                                Sign up
+                                            </Button>
+                                        </Stack>
+                                        <Stack pt={6}>
+                                            {/* <Text align={'center'}>
+                                                Already a user? <Link color={'blue.400'}>Login</Link>
+                                            </Text> */}
+                                        </Stack>
+                                    </Stack>
+                                </Box>
+                            </Stack>
+                        </Flex>
+                    </ModalContent>
+                </ModalOverlay>
+            </Modal>
+
+
+
+
+
+        </Box >
+    )
 }
 
 
