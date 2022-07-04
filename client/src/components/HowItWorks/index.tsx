@@ -1,52 +1,61 @@
-import {
-  Accordion,
-  AccordionItem,
-  AccordionIcon,
-  AccordionButton,
-  AccordionPanel,
-  Box,
-} from '@chakra-ui/react';
+import { ReactElement } from 'react';
+import { Box, SimpleGrid, Icon, Text, Stack, Flex } from '@chakra-ui/react';
+import { FcAssistant, FcDonate, FcInTransit } from 'react-icons/fc';
 
+interface FeatureProps {
+  title: string;
+  text: string;
+  icon: ReactElement;
+}
+
+const Feature = ({ title, text, icon }: FeatureProps) => {
+  return (
+    <Stack>
+      <Flex
+        w={16}
+        h={16}
+        align={'center'}
+        justify={'center'}
+        color={'white'}
+        rounded={'full'}
+        bg={'gray.100'}
+        mb={1}>
+        {icon}
+      </Flex>
+      <Text fontWeight={600}>{title}</Text>
+      <Text color={'gray.600'}>{text}</Text>
+    </Stack>
+  );
+};
 
 export function HowItWorks() {
   return (
-
-    <Accordion defaultIndex={[0]} allowMultiple>
-      <AccordionItem>
-        <h2>
-          <AccordionButton>
-            <Box flex='1' textAlign='left'>
-              Upload You Pictures
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.
-        </AccordionPanel>
-      </AccordionItem>
-
-      <AccordionItem>
-        <h2>
-          <AccordionButton>
-            <Box flex='1' textAlign='left'>
-              Invite Your Friends and Family
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.
-        </AccordionPanel>
-      </AccordionItem>
-    </Accordion>
-  )
+    <Box p={4}>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+        <Feature
+          icon={<Icon as={FcAssistant} w={10} h={10} />}
+          title={'Upload Your Pictures'}
+          text={
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+          }
+        />
+        <Feature
+          icon={<Icon as={FcDonate} w={10} h={10} />}
+          title={'Invite Your Friends and Family'}
+          text={
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+          }
+        />
+        <Feature
+          icon={<Icon as={FcInTransit} w={10} h={10} />}
+          title={'Instant Private Picture Access'}
+          text={
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
+          }
+        />
+      </SimpleGrid>
+    </Box>
+  );
 }
 
 export default HowItWorks;

@@ -36,7 +36,7 @@ return (
             </Box>
                
       
-        <Container>
+        <Container w='100%'>
             <Heading>Snap it. Share it. Done.</Heading>
             <Text>How it Works.</Text>
             <HowItWorks />
