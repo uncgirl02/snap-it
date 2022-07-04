@@ -135,7 +135,7 @@ export function CreateAlbum() {
           <FormLabel htmlFor="private" mb="0" mt={150}>
             Make Private?
           </FormLabel>
-          <Switch id="private" onChange={(event)=> setIsPublic(event.currentTarget.checked)}/>
+          <Switch id="private" defaultChecked={false} onChange={(event)=> setIsPublic(event.currentTarget.checked)}/>
         </FormControl>
         <FormControl>
           <FormLabel>Invite a Friend to View?</FormLabel>
