@@ -24,3 +24,14 @@ export const ADD_USER = gql `
     }
 `;
 
+export const ADD_ALBUM = gql `
+    mutation addAlbum($albumName: String!, $isPublic: Boolean!, $photos:[String]!){
+        addAlbum(albumName: $albumName, isPublic: $isPublic, photos:$photos) {
+            _id
+            albumName
+            isPublic
+            photos
+        }
+    }
+`;
+

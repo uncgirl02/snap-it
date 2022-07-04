@@ -67,7 +67,6 @@ export default function Navbar() {
     );
 
     setIsSending(false);
-    // console.log("result",result)
   };
 
   const sendSigninpRequest = () => {
