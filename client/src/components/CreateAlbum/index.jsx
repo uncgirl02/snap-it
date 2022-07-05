@@ -113,7 +113,6 @@ export function CreateAlbum() {
           />
           {file && <p> Uploaded: {file}</p>}
         </Stack>
-
         {/* <SimpleGrid>
           <List>
             {uploadedImages.length ? (
