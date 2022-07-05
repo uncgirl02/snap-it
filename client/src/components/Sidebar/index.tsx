@@ -97,6 +97,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         </NavItem>
       ))}
       <Text textAlign={'center'} fontWeight={'bold'} color='teal' fontSize='lg' mt={6}>Your Albums</Text>
+      
     </Box>
   );
 };

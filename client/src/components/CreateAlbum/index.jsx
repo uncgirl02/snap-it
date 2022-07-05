@@ -8,28 +8,39 @@ import {
   Input,
   Stack,
   useColorModeValue,
-  HStack,
   Center,
   Switch,
-  Grid,
-  GridItem,
-  SimpleGrid,
-  Container,
-  List,
-  ListItem
+
 } from "@chakra-ui/react";
 import { SmallCloseIcon } from "@chakra-ui/icons";
 import SimpleFileUpload, {
   SimpleFileUploadProvider,
 } from "react-simple-file-upload";
 import React, { useState } from "react";
+import { useRef } from "react";
 import { FiUpload } from "react-icons/fi";
 import { useMutation } from "@apollo/client";
 import { ADD_ALBUM } from "../../utils/mutations";
 
+import emailjs from '@emailjs/browser';
+
 export function CreateAlbum() {
   const [file, setFile] = useState();
   const [uploadedImages, setUploadedImages] = useState([])
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_5es8oey', 'template_jt004ma', form.current, 'Qipkbg_kQLx-Nrs3f')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+  };
+
 
   function handleUpload(url) {
     console.log(url)
@@ -49,7 +60,7 @@ export function CreateAlbum() {
     setIsSending(true);
 
     addAlbumMutation({
-      variables:{albumName: albumName, isPublic: isPublic, photos: uploadedImages}
+      variables: { albumName: albumName, isPublic: isPublic, photos: uploadedImages }
     }).then(
       (result) => {
         console.log("result", result.data)
@@ -87,13 +98,13 @@ export function CreateAlbum() {
             placeholder="Album Name"
             _placeholder={{ color: "gray.500" }}
             type="text"
-            onChange={(event)=> setAlbumName(event.currentTarget.value)}
+            onChange={(event) => setAlbumName(event.currentTarget.value)}
           />
         </FormControl>
         <Stack direction={["column", "row"]} spacing={6}>
           <Center></Center>
           <SimpleFileUpload
-            apiKey = "d479605eda75f2a5f3b0db1676d16b26"
+            apiKey="d479605eda75f2a5f3b0db1676d16b26"
             // apiKey = {process.env.HEROKU_KEY}
             preview="true"
             width="300"
@@ -102,11 +113,7 @@ export function CreateAlbum() {
           />
           {file && <p> Uploaded: {file}</p>}
         </Stack>
-          <Center maxW={"md"}>
-            <Button leftIcon={<FiUpload />} w="full">
-              Upload Images
-            </Button>
-          </Center>
+
         {/* <SimpleGrid>
           <List>
             {uploadedImages.length ? (
@@ -121,32 +128,70 @@ export function CreateAlbum() {
           </List>
         </SimpleGrid> */}
         <Stack direction={['column', 'row']} spacing='24px'>
-        {uploadedImages.length ? (
-              uploadedImages.map((image)=>(
-                <Box height='200' w='200px' mb={30}>
-                  <img src={image} alt="Album Photos"/>
-                </Box>
-              ))
-            ) : (
-              <p>Upload up to 10 images and they will appear here!</p>
-            )}
+          {uploadedImages.length ? (
+            uploadedImages.map((image) => (
+              <Box height='200' w='200px' mb={30}>
+                <img src={image} alt="Album Photos" />
+              </Box>
+            ))
+          ) : (
+            <p>Upload up to 10 images and they will appear here!</p>
+          )}
         </Stack>
         <FormControl>
           <FormLabel htmlFor="private" mb="0" mt={150}>
             Make Private?
           </FormLabel>
-          <Switch id="private" defaultChecked={false} onChange={(event)=> setIsPublic(event.currentTarget.checked)}/>
+          <Switch id="private" defaultChecked={false} onChange={(event) => setIsPublic(event.currentTarget.checked)} />
         </FormControl>
-        <FormControl>
-          <FormLabel>Invite a Friend to View?</FormLabel>
-          <Input
-            maxW={"md"}
-            placeholder="Friend's E-mail Address"
-            _placeholder={{ color: "gray.500" }}
-            type="text"
-            onChange={(event)=> setFriendEmail(event.currentTarget.value)}
-          />
-        </FormControl>
+        <form ref={form} onSubmit={sendEmail}>
+          <FormControl >
+
+            <FormLabel>Invite a Friend to View?</FormLabel>
+            <Stack >
+              <Input
+                name="friend_name"
+                maxW={"md"}
+                placeholder="Friend's Name"
+                _placeholder={{ color: "gray.500" }}
+                type="text"
+              />
+              <Input
+                name="friend_email"
+                maxW={"md"}
+                placeholder="Friend's E-mail Address"
+                _placeholder={{ color: "gray.500" }}
+                type="e-mail"
+                onChange={(event) => setFriendEmail(event.currentTarget.value)}
+              />
+              <Input
+                name="user_name"
+                maxW={"md"}
+                placeholder="Your Name"
+                _placeholder={{ color: "gray.500" }}
+                type="text"
+
+              />
+              <Input
+                name="user_email"
+                maxW={"md"}
+                placeholder="Your E-mail Address"
+                _placeholder={{ color: "gray.500" }}
+                type="e-mail"
+              />
+              <Button
+                maxW={"md"}
+                placeholder="Send"
+                _placeholder={{ color: "gray.500" }}
+                bg='gray.300'
+                type='submit'
+                value='Send'
+                onSubmit={sendEmail}>Send Invite
+              </Button>
+            </Stack>
+          </FormControl>
+        </form>
+
 
         <Stack spacing={6} direction={["column", "row"]}>
           <Button
