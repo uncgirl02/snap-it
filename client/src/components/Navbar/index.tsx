@@ -30,6 +30,7 @@ export default function Navbar() {
   } = useDisclosure();
   const { isOpen: isOpen } = useDisclosure();
   const [signupModal, setSignupModal] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const [username, setUserName] = useState("");
@@ -58,6 +59,7 @@ export default function Navbar() {
       },
       function (error) {
         console.log("error", error.message);
+        setError(error.message);
         alert(` oops ${error.message}`);
       }
     );
@@ -297,7 +299,14 @@ export default function Navbar() {
                         Sign up
                       </Button>
                     </Stack>
-                    {Error() && <div>SIGN UP FAILED!!</div>}
+                    {error && <div>SIGN UP FAILED!!</div>}
+                    {/* <Stack pt={6}>
+                                            <Text align={'center'}>
+                                                Already a user? 
+											<Link to={'/'}></Link>
+												
+                                            </Text>
+                                        </Stack> */}
                   </Stack>
                 </Box>
               </Stack>

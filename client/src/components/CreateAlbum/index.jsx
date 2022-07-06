@@ -1,30 +1,32 @@
 import {
   Box,
-  Button,
-  Flex,
+  Button, Center, Flex,
   FormControl,
   FormLabel,
   Heading,
   Input,
-  Stack,
-  useColorModeValue,
-  Center,
-  Switch,
-
+  Stack, Switch, useColorModeValue
 } from "@chakra-ui/react";
+
 import SimpleFileUpload, {
   SimpleFileUploadProvider,
 } from "react-simple-file-upload";
 import React, { useState } from "react";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 import { useMutation } from "@apollo/client";
+import { useRef, useState } from "react";
+import SimpleFileUpload from "react-simple-file-upload";
 import { ADD_ALBUM } from "../../utils/mutations";
 
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 export function CreateAlbum() {
   const [file, setFile] = useState();
-  const [uploadedImages, setUploadedImages] = useState([])
+  const [uploadedImages, setUploadedImages] = useState([]);
+  const navigate = useNavigate();
 
   const [invite, setInvite] = useState();
 
@@ -32,6 +34,7 @@ export function CreateAlbum() {
 
   const sendEmail = (e) => {
     e.preventDefault();
+
 
     emailjs.sendForm('service_5es8oey', 'template_jt004ma', form.current, 'Qipkbg_kQLx-Nrs3f')
       .then((result) => {
@@ -43,10 +46,9 @@ export function CreateAlbum() {
       .then()
   };
 
-
   function handleUpload(url) {
-    console.log(url)
-    setUploadedImages([...uploadedImages, url])
+    console.log(url);
+    setUploadedImages([...uploadedImages, url]);
   }
 
   const [albumName, setAlbumName] = useState("");
@@ -62,12 +64,15 @@ export function CreateAlbum() {
     setIsSending(true);
 
     addAlbumMutation({
-      variables: { albumName: albumName, isPublic: isPublic, photos: uploadedImages }
-    }).then(
-      (result) => {
-        console.log("result", result.data)
-      }
-    );
+      variables: {
+        albumName: albumName,
+        isPublic: isPublic,
+        photos: uploadedImages,
+      },
+    }).then((result) => {
+      console.log("result", result.data);
+      navigate("/dashboard");
+    });
 
     setIsSending(false);
   };
@@ -107,14 +112,17 @@ export function CreateAlbum() {
             preview="true"
             width="300"
             height="300"
+            multiple="true"
             onSuccess={handleUpload}
           />
           {file && <p> Uploaded: {file}</p>}
         </Stack>
+
         <Stack direction={['column', 'row']} spacing='24px'>
+
           {uploadedImages.length ? (
             uploadedImages.map((image) => (
-              <Box height='200' w='200px' mb={30}>
+              <Box height="200" w="200px" mb={30}>
                 <img src={image} alt="Album Photos" />
               </Box>
             ))
@@ -126,13 +134,16 @@ export function CreateAlbum() {
           <FormLabel htmlFor="private" mb="0" mt={150}>
             Make Private?
           </FormLabel>
-          <Switch id="private" defaultChecked={false} onChange={(event) => setIsPublic(event.currentTarget.checked)} />
+          <Switch
+            id="private"
+            defaultChecked={false}
+            onChange={(event) => setIsPublic(event.currentTarget.checked)}
+          />
         </FormControl>
         <form ref={form} onSubmit={sendEmail}>
-          <FormControl >
-
+          <FormControl>
             <FormLabel>Invite a Friend to View?</FormLabel>
-            <Stack >
+            <Stack>
               <Input
                 name="friend_name"
                 maxW={"md"}
@@ -154,7 +165,6 @@ export function CreateAlbum() {
                 placeholder="Your Name"
                 _placeholder={{ color: "gray.500" }}
                 type="text"
-
               />
               <Input
                 name="user_email"
@@ -167,16 +177,17 @@ export function CreateAlbum() {
                 maxW={"md"}
                 placeholder="Send"
                 _placeholder={{ color: "gray.500" }}
-                bg='gray.300'
-                type='submit'
-                value='Send'
-                onSubmit={sendEmail}>Send Invite
+                bg="gray.300"
+                type="submit"
+                value="Send"
+                onSubmit={sendEmail}
+              >
+                Send Invite
               </Button>
               {invite && <div>INVITE SENT!</div>}
             </Stack>
           </FormControl>
         </form>
-
 
         <Stack spacing={6} direction={["column", "row"]}>
           <Button
@@ -196,7 +207,8 @@ export function CreateAlbum() {
             _hover={{
               bg: "blue.500",
             }}
-            onClick={sendCreateAlbumRequest}>
+            onClick={sendCreateAlbumRequest}
+          >
             Create My Album
           </Button>
         </Stack>

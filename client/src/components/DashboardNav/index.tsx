@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { Link as ReachLink } from 'react-router-dom'
 import Auth from '../../utils/auth'
+import { QUERY_USER } from '../../utils/queries';
 
 import logo from '../../assets/camera.png'
 import {
@@ -29,20 +30,45 @@ import {
     DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
+    List,
+    ListItem,
+    ListIcon
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, AddIcon, SmallCloseIcon } from '@chakra-ui/icons';
+import { MdPeople } from 'react-icons/md';
+import { useQuery } from '@apollo/client';
 
 
 const logout = () => {
     Auth.logout();
 }
 
+// const jwt = require('jsonwebtoken');
+// const User = require('../../../')
+
+// const theUser = () => {
+
+//     console.log(Auth.getUser())
+
+
 export function DashboardNav() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { isOpen: isProfileOpen, onOpen: onProfileOpen, onClose: onProfileClose } = useDisclosure();
     const { isOpen: isFriendOpen, onOpen: onFriendOpen, onClose: onFriendClose } = useDisclosure();
     const { isOpen: isAddFriendOpen, onOpen: onAddFriendOpen, onClose: onAddFriendClose } = useDisclosure();
-
+    
+    // const { loading, data } = useQuery(QUERY_USER, {
+    //     variables: { username: Auth.getUser() }
+    // });
+    
+    // const user = data?.user || {};
+    // const theUser = () => {
+    //     user.friends.map(() => (
+    //         console.log(user.friends._id))
+    //     )}
+    //     console.log(user.friends[2]._id)
+    // }
+    
     return (
         <>
             <Box bg={useColorModeValue('gray.300', 'gray.900')} px={4}>
@@ -256,6 +282,11 @@ export function DashboardNav() {
                                         Cancel
                                     </Button>
                                     <Button
+                                        onClick = { () => {
+                                            console.log('Test');
+                                            console.log('Test2');
+                                            onProfileClose()
+                                        }}
                                         bg={'blue.400'}
                                         color={'white'}
                                         w="full"
@@ -282,7 +313,15 @@ export function DashboardNav() {
             <DrawerHeader>My Friends</DrawerHeader>
   
             <DrawerBody>
-              
+            <List spacing={3}>
+                <p>Peter Piper</p>
+              {/* {user.friends.map(() => (
+                    <ListItem>
+                        <ListIcon as={MdPeople} />
+                        {user.friends.username}
+                    </ListItem>
+                ))} */}
+            </List>
             </DrawerBody>
   
             <DrawerFooter>

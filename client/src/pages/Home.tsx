@@ -22,10 +22,10 @@ export default function Home() {
                 <Container maxW='100%' centerContent bg={'gray.100'}>
                     <Heading className='top-album-heading' pt={5}>Top Albums of the Week</Heading>
                     <HStack justifyContent={'center'}>
+                        {/* <AlbumCard />
                         <AlbumCard />
                         <AlbumCard />
-                        <AlbumCard />
-                        <AlbumCard />
+                        <AlbumCard /> */}
                     </HStack>
                 </Container>
 

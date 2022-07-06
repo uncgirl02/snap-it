@@ -24,6 +24,21 @@ export const ADD_USER = gql `
     }
 `;
 
+
+
+export const ADD_FRIEND = gql`
+  mutation addFriend($id: ID!) {
+    addFriend(friendId: $id) {
+      _id
+      username
+      friends {
+        _id
+        username
+      }
+    }
+  }
+`;
+
 export const GET_USER = gql `
     query user($username: String!){
         user(username: "Fan44") {
@@ -47,6 +62,7 @@ export const ADD_ALBUM = gql `
     }
 `;
 
+
 export const UPDATE_USER = gql `
     mutation updateUser($username: String!, $email: String!, $password: String!){
         updateUser(username: $username, email: $email, password: $password) {
@@ -59,3 +75,4 @@ export const UPDATE_USER = gql `
         }
     }
 `;
+
