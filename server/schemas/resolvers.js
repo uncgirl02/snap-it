@@ -104,7 +104,7 @@ const resolvers = {
           { _id: context.user._id },
           { $addToSet: { friends: friendId } },
           { new: true }
-        ).populate('friends');
+        );
 
         return updatedUser;
       }
