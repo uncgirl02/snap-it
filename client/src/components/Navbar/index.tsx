@@ -204,13 +204,6 @@ export default function Navbar() {
                       />
                     </FormControl>
                     <Stack spacing={10}>
-                      {/* <Stack
-                                                direction={{ base: 'column', sm: 'row' }}
-                                                align={'start'}
-                                                justify={'space-between'}>
-                                                <Checkbox>Remember me</Checkbox>
-												<Link to={'/'}></Link>
-                                            </Stack> */}
                       <Button
                         bg={"blue.400"}
                         color={"white"}
@@ -288,15 +281,6 @@ export default function Navbar() {
                             setPassword(event.currentTarget.value)
                           }
                         />
-                        {/* <InputRightElement h={'full'}>
-                                                    <Button
-                                                        variant={'ghost'}
-                                                        onClick={() =>
-                                                            setShowPassword((showPassword) => !showPassword)
-                                                        }>
-                                                        {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                                                    </Button>
-                                                </InputRightElement> */}
                       </InputGroup>
                     </FormControl>
                     <Stack spacing={10} pt={2}>
@@ -314,13 +298,6 @@ export default function Navbar() {
                       </Button>
                     </Stack>
                     {Error() && <div>SIGN UP FAILED!!</div>}
-                    {/* <Stack pt={6}>
-                                            <Text align={'center'}>
-                                                Already a user? 
-											<Link to={'/'}></Link>
-												
-                                            </Text>
-                                        </Stack> */}
                   </Stack>
                 </Box>
               </Stack>

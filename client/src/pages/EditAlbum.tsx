@@ -7,10 +7,8 @@ import { FiUpload } from "react-icons/fi";
 
 import {
     Flex,
-    Button,
     Container,
     Heading,
-    VStack,
     SimpleGrid,
     Image,
 } from '@chakra-ui/react';

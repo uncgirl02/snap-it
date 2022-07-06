@@ -1,11 +1,9 @@
 import {
     Box, Container, Flex, Heading, HStack, Text
 } from '@chakra-ui/react'
-import images from '../assets/images'
 import AlbumCard from '../components/AlbumCard'
 import Footer from '../components/Footer'
 import HowItWorks from '../components/HowItWorks'
-import ImageSlider from '../components/ImageSlider'
 import Navbar from '../components/Navbar'
 import Testimonials from '../components/Testimonials'
 import Hero from '../components/Hero'

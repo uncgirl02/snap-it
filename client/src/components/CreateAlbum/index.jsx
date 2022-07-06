@@ -12,13 +12,11 @@ import {
   Switch,
 
 } from "@chakra-ui/react";
-import { SmallCloseIcon } from "@chakra-ui/icons";
 import SimpleFileUpload, {
   SimpleFileUploadProvider,
 } from "react-simple-file-upload";
 import React, { useState } from "react";
 import { useRef } from "react";
-import { FiUpload } from "react-icons/fi";
 import { useMutation } from "@apollo/client";
 import { ADD_ALBUM } from "../../utils/mutations";
 
@@ -76,16 +74,12 @@ export function CreateAlbum() {
 
   return (
     <Flex
-      // minH={'100vh'}
-      // align={'center'}
-      // justify={'center'}
       width={"full"}
       bg={useColorModeValue("gray.100", "gray.800")}
     >
       <Stack
         spacing={6}
         w="100%"
-        //   maxW={'md'}
         bg={useColorModeValue("white", "gray.700")}
         rounded={"xl"}
         boxShadow={"lg"}
@@ -117,19 +111,6 @@ export function CreateAlbum() {
           />
           {file && <p> Uploaded: {file}</p>}
         </Stack>
-        {/* <SimpleGrid>
-          <List>
-            {uploadedImages.length ? (
-              uploadedImages.map((image)=>(
-                <ListItem h={200} w={200} mb={10}>
-                  <img src={image} alt="Album Photos"/>
-                </ListItem>
-              ))
-            ) : (
-              <p>Your uploaded images will appear here!</p>
-            )}
-          </List>
-        </SimpleGrid> */}
         <Stack direction={['column', 'row']} spacing='24px'>
           {uploadedImages.length ? (
             uploadedImages.map((image) => (

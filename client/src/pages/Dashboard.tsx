@@ -7,8 +7,6 @@ import {
     Flex,
     Heading,
     Container,
-    HStack,
-    VStack,
     Wrap,
     WrapItem,
 

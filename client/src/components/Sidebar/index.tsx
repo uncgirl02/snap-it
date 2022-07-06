@@ -21,10 +21,7 @@ import {
   FiTruck,
   FiFeather,
   FiStar,
-  FiSettings,
-  FiBox,
   FiMenu,
-  FiHeart,
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
