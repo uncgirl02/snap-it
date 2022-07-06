@@ -133,7 +133,10 @@ const resolvers = {
         return album;
       }
       throw new AuthenticationError('You need to be logged in to add an album');
-    }
+    },
+    updateUser: async (parent, { id, username, password, email }) => {
+      return await Class.findOneAndUpdate({ _id: id }, { username, password, email }, {new: true});
+    },
   }
 };
 

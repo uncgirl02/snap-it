@@ -47,6 +47,7 @@ type Mutation {
     addReaction(thoughtId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
     addAlbum(albumName: String!, isPublic: Boolean!, photos:[String]!): Album
+    updateUser(username: String!, email: String!, password: String!): User
 }
 
 type Album {

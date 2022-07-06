@@ -32,21 +32,6 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, AddIcon, SmallCloseIcon } from '@chakra-ui/icons';
 
-// const Links = ['Edit Profile', 'Friend List', 'Log Out'];
-
-// const NavLink = ({ children }: { children: ReactNode }) => (
-//   <Link
-//     px={2}
-//     py={1}
-//     rounded={'md'}
-//     _hover={{
-//       textDecoration: 'none',
-//       bg: useColorModeValue('teal.300', 'teal.300'),
-//     }}
-//     href={'#'}>
-//     {children}
-//   </Link>
-// );
 
 const logout = () => {
     Auth.logout();
@@ -254,7 +239,7 @@ export function DashboardNav() {
                                     />
                                 </FormControl>
                                 <FormControl id="email" isRequired>
-                                    <FormLabel>Email address</FormLabel>
+                                    <FormLabel> Email address</FormLabel>
                                     <Input
                                         placeholder="your-email@example.com"
                                         _placeholder={{ color: 'gray.500' }}

@@ -313,7 +313,7 @@ export default function Navbar() {
                         Sign up
                       </Button>
                     </Stack>
-                    {error2 && <div>SIGN UP FAILED!!</div>}
+                    {Error() && <div>SIGN UP FAILED!!</div>}
                     {/* <Stack pt={6}>
                                             <Text align={'center'}>
                                                 Already a user? 

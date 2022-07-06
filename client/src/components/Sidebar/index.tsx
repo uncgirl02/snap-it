@@ -17,7 +17,6 @@ import {
 import {
   FiGlobe,
   FiTruck,
-  FiCompass,
   FiFeather,
   FiStar,
   FiSettings,
