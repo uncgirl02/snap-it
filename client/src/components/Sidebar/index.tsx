@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Link as ReachLink } from 'react-router-dom'
 import {
   IconButton,
   Box,
@@ -13,17 +14,14 @@ import {
   useDisclosure,
   BoxProps,
   FlexProps,
+  Button,
 } from '@chakra-ui/react';
 import {
   FiGlobe,
   FiTruck,
-  FiCompass,
   FiFeather,
   FiStar,
-  FiSettings,
-  FiBox,
   FiMenu,
-  FiHeart,
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
@@ -36,8 +34,6 @@ const LinkItems: Array<LinkItemProps> = [
   { name: 'Fashion', icon: FiStar },
   { name: 'Cars', icon: FiTruck },
   { name: 'Nature', icon: FiFeather },
-  { name: 'Architecture', icon: FiBox },
-  { name: 'Beauty', icon: FiHeart },
   { name: 'Travel', icon: FiGlobe },
 
 
@@ -83,11 +79,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       borderRight="1px"
       borderRightColor={useColorModeValue('gray.200', 'gray.700')}
       w={{ base: 'full', md: 60 }}
-    //   pos="fixed"
+      //   pos="fixed"
       h="full"
       py='6'
       {...rest}>
-      <Flex  alignItems="center" mx="8" justifyContent="space-between">
+      <Flex alignItems="center" mx="8" justifyContent="space-between">
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       <Text textAlign={'center'} fontWeight={'bold'} color='teal' fontSize='lg'>Album Categories</Text>
@@ -96,8 +92,30 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           {link.name}
         </NavItem>
       ))}
-      <Text textAlign={'center'} fontWeight={'bold'} color='teal' fontSize='lg' mt={6}>Your Albums</Text>
-      
+      <Flex direction='column' alignItems="center" mx="8" justifyContent="center">
+        <Button as={ReachLink} to='/DashBoard'
+          variant={'solid'}
+          colorScheme={'teal'}
+          size={'md'}
+          mr={4}
+          mt={4}>
+          My Albums</Button>
+          <Button as={ReachLink} to='/DashBoard'
+          variant={'solid'}
+          colorScheme={'teal'}
+          size={'md'}
+          mr={4}
+          mt={4}>
+          Friends Albums</Button>
+          <Button as={ReachLink} to='/DashBoard'
+          variant={'solid'}
+          colorScheme={'teal'}
+          size={'md'}
+          mr={4}
+          mt={4}>
+          Favorite Albums</Button>
+        
+      </Flex>
     </Box>
   );
 };
