@@ -8,7 +8,7 @@ class AuthService {
 
     getUser(){
         let user = decode(this.getToken())
-
+        console.log("Hello", user)
         return user.data.username
     }
 

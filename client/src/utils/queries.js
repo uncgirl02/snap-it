@@ -6,7 +6,11 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      albums
+      albums {
+        _id
+        photos
+        albumName
+      }
       friends {
         _id
         username
@@ -14,3 +18,15 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const GET_ALBUMS = gql`
+query Albums($username: String!) {
+    albums(username: $username) {
+      _id
+      albumName
+      isPublic
+      photos
+    }
+  }
+
+`

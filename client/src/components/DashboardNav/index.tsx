@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import { Link as ReachLink } from 'react-router-dom'
 import Auth from '../../utils/auth'
 import { QUERY_USER } from '../../utils/queries';
-// import { useQuery } from '@chakra-ui/react';
 
 import logo from '../../assets/camera.png'
 import {
@@ -37,7 +36,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, AddIcon, SmallCloseIcon } from '@chakra-ui/icons';
 import { MdPeople } from 'react-icons/md';
-import { useQuery } from '@apollo/client/react/hooks';
+import { useQuery } from '@apollo/client';
 
 // const Links = ['Edit Profile', 'Friend List', 'Log Out'];
 
@@ -73,17 +72,17 @@ export function DashboardNav() {
     const { isOpen: isFriendOpen, onOpen: onFriendOpen, onClose: onFriendClose } = useDisclosure();
     const { isOpen: isAddFriendOpen, onOpen: onAddFriendOpen, onClose: onAddFriendClose } = useDisclosure();
     
-    const { loading, data } = useQuery(QUERY_USER, {
-        variables: { username: Auth.getUser() }
-    });
+    // const { loading, data } = useQuery(QUERY_USER, {
+    //     variables: { username: Auth.getUser() }
+    // });
     
-    const user = data?.user || {};
-    const theUser = () => {
-        // user.friends.map(() => (
-        //     console.log(user.friends._id))
-        // )}
-        console.log(user.friends[2]._id)
-    }
+    // const user = data?.user || {};
+    // const theUser = () => {
+    //     user.friends.map(() => (
+    //         console.log(user.friends._id))
+    //     )}
+    //     console.log(user.friends[2]._id)
+    // }
     
     return (
         <>
