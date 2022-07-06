@@ -211,6 +211,7 @@ export function DashboardNav() {
                                 </FormControl>
                                 <Stack spacing={6} direction={['column', 'row']}>
                                     <Button
+                                        onClick = {onProfileClose}
                                         bg={'red.400'}
                                         color={'white'}
                                         w="full"
@@ -220,6 +221,11 @@ export function DashboardNav() {
                                         Cancel
                                     </Button>
                                     <Button
+                                        onClick = { () => {
+                                            console.log('Test');
+                                            console.log('Test2');
+                                            onProfileClose()
+                                        }}
                                         bg={'blue.400'}
                                         color={'white'}
                                         w="full"
