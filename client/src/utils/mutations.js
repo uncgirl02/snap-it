@@ -34,6 +34,3 @@ export const ADD_ALBUM = gql `
         }
     }
 `;
-
-export const ADD_FRIEND = gql `
-`
