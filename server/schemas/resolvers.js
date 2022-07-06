@@ -9,7 +9,6 @@ const resolvers = {
 
         const userData = await User.findOne({_id: context.user._id})
           .select('-__v -password')
-          .populate('thoughts')
           .populate('friends')
   
           return (userData);
@@ -45,10 +44,10 @@ const resolvers = {
       return Album.find(params).sort({ createdAt: -1 });
     },
     
-    albums: async() => {
-      const params = username ? { username } : {};
-      return User.find(params).sort({ createdAt: -1 });
-    },
+    // albums: async() => {
+    //   const params = username ? { username } : {};
+    //   return User.find(params).sort({ createdAt: -1 });
+    // },
 
   },
 
@@ -109,7 +108,7 @@ const resolvers = {
           { _id: context.user._id },
           { $addToSet: { friends: friendId } },
           { new: true }
-        ).populate('friends');
+        ).populate('friends')
 
         return updatedUser;
       }
@@ -128,7 +127,7 @@ const resolvers = {
           {_id: context.user._id},
           {$push: {albums: album._id}},
           {new: true}
-        );
+        ).populate('albums')
 
         return album;
       }
