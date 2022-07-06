@@ -31,6 +31,7 @@ export default function Navbar() {
   const { isOpen: isOpen } = useDisclosure();
   const [signupModal, setSignupModal] = useState(false);
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
 
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -313,7 +314,7 @@ export default function Navbar() {
                         Sign up
                       </Button>
                     </Stack>
-                    {error2 && <div>SIGN UP FAILED!!</div>}
+                    {error && <div>SIGN UP FAILED!!</div>}
                     {/* <Stack pt={6}>
                                             <Text align={'center'}>
                                                 Already a user? 
