@@ -19,6 +19,10 @@ const AlbumSchema = new Schema({
     isPublic: {
         type: Boolean
     },
+    username: {
+        type: String,
+        // required: true
+    },
     photos: []
 },
 {

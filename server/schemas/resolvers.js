@@ -27,6 +27,10 @@ const resolvers = {
       throw new AuthenicationError("not logged in");
     },
 
+    user: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return User.findOne(params).sort({ createdAt: -1 });
+    },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Thought.find(params).sort({ createdAt: -1 });
@@ -40,10 +44,11 @@ const resolvers = {
       const params = username ? { username } : {};
       return Album.find(params).sort({ createdAt: -1 });
     },
-
-    albums: async(parent, {_id} ) => {
-      return Album.findOne({_id});
-    }
+    
+    albums: async() => {
+      const params = username ? { username } : {};
+      return User.find(params).sort({ createdAt: -1 });
+    },
 
   },
 
