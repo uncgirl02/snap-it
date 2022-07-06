@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { Link, useNavigate } from 'react-router-dom';
 
 import logo from '../../assets/camera.png';
-import {LOGIN_USER, ADD_USER} from '../../utils/mutations';
+import {LOGIN_USER, ADD_USER, } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
@@ -15,8 +15,6 @@ import {
     Box, Button, Checkbox, Flex, FormControl,
     FormLabel, Heading, HStack, IconButton, Image, Input, InputGroup, Modal, ModalContent, ModalOverlay, propNames, Stack, Text, useBreakpointValue, useColorModeValue, useDisclosure
 } from '@chakra-ui/react';
-
-
 
 export default function Navbar() {
   const {
@@ -32,7 +30,6 @@ export default function Navbar() {
   } = useDisclosure();
   const { isOpen: isOpen } = useDisclosure();
   const [signupModal, setSignupModal] = useState(false);
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const [username, setUserName] = useState("");
@@ -43,7 +40,6 @@ export default function Navbar() {
   const [signinMutation] = useMutation(LOGIN_USER);
 
   const [isSending, setIsSending] = useState(false);
-
   const sendSignupRequest = () => {
     console.log(
       `Email: ${email} & Password: ${password} & Username: ${username}`
@@ -55,14 +51,13 @@ export default function Navbar() {
       variables: { username: username, email: email, password: password },
     }).then(
       (result) => {
-        console.log("result", result.data.login.token);
-        Auth.login(result.data.login.token)
+        console.log("result", result.data.addUser.token);
+        Auth.login(result.data.addUser.token)
         setSignupModal(false);
         navigate("/dashboard");
       },
       function (error) {
         console.log("error", error.message);
-        setError(error.message);
         alert(` oops ${error.message}`);
       }
     );
@@ -78,14 +73,13 @@ export default function Navbar() {
     signinMutation({ variables: { email: email, password: password } 
     }).then(
       (result) => {
-        console.log("result", result.data.login.token);
+        console.log("result", result);
         Auth.login(result.data.login.token)
         setSignupModal(false);
         navigate("/dashboard");
       },
       function (error) {
         console.log("error", error.message);
-        setError(error.message);
         alert(` oops ${error.message}`);
       }
     );
@@ -319,7 +313,7 @@ export default function Navbar() {
                         Sign up
                       </Button>
                     </Stack>
-                    {error && <div>SIGN UP FAILED!!</div>}
+                    {error2 && <div>SIGN UP FAILED!!</div>}
                     {/* <Stack pt={6}>
                                             <Text align={'center'}>
                                                 Already a user? 
