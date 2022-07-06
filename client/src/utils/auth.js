@@ -6,6 +6,12 @@ class AuthService {
         return decode(this.getToken())
     }
 
+    getUser(){
+        let user = decode(this.getToken())
+
+        return user.data.username
+    }
+
     // check if the user is still loggged in, if the token is saved & valid, and if it's not undefined or expired using the methods below
     loggedIn(){
         const token = this.getToken();

@@ -9,7 +9,6 @@ const resolvers = {
 
         const userData = await User.findOne({_id: context.user._id})
           .select('-__v -password')
-          .populate('thoughts')
           .populate('friends')
   
           return (userData);
@@ -109,7 +108,7 @@ const resolvers = {
           { _id: context.user._id },
           { $addToSet: { friends: friendId } },
           { new: true }
-        ).populate('friends');
+        ).populate('friends')
 
         return updatedUser;
       }
