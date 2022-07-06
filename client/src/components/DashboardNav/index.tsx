@@ -38,21 +38,6 @@ import { HamburgerIcon, CloseIcon, AddIcon, SmallCloseIcon } from '@chakra-ui/ic
 import { MdPeople } from 'react-icons/md';
 import { useQuery } from '@apollo/client';
 
-// const Links = ['Edit Profile', 'Friend List', 'Log Out'];
-
-// const NavLink = ({ children }: { children: ReactNode }) => (
-//   <Link
-//     px={2}
-//     py={1}
-//     rounded={'md'}
-//     _hover={{
-//       textDecoration: 'none',
-//       bg: useColorModeValue('teal.300', 'teal.300'),
-//     }}
-//     href={'#'}>
-//     {children}
-//   </Link>
-// );
 
 const logout = () => {
     Auth.logout();
@@ -184,16 +169,6 @@ export function DashboardNav() {
                         </Menu>
                     </Flex>
                 </Flex>
-
-                {/* {isOpen ? (
-          <Box pb={4} display={{ md: 'none' }}>
-            <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
-            </Stack>
-          </Box>
-        ) : null} */}
             </Box>
 
 
@@ -280,7 +255,7 @@ export function DashboardNav() {
                                     />
                                 </FormControl>
                                 <FormControl id="email" isRequired>
-                                    <FormLabel>Email address</FormLabel>
+                                    <FormLabel> Email address</FormLabel>
                                     <Input
                                         placeholder="your-email@example.com"
                                         _placeholder={{ color: 'gray.500' }}

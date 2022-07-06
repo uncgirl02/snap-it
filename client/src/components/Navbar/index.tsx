@@ -206,13 +206,6 @@ export default function Navbar() {
                       />
                     </FormControl>
                     <Stack spacing={10}>
-                      {/* <Stack
-                                                direction={{ base: 'column', sm: 'row' }}
-                                                align={'start'}
-                                                justify={'space-between'}>
-                                                <Checkbox>Remember me</Checkbox>
-												<Link to={'/'}></Link>
-                                            </Stack> */}
                       <Button
                         bg={"blue.400"}
                         color={"white"}
@@ -290,15 +283,6 @@ export default function Navbar() {
                             setPassword(event.currentTarget.value)
                           }
                         />
-                        {/* <InputRightElement h={'full'}>
-                                                    <Button
-                                                        variant={'ghost'}
-                                                        onClick={() =>
-                                                            setShowPassword((showPassword) => !showPassword)
-                                                        }>
-                                                        {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                                                    </Button>
-                                                </InputRightElement> */}
                       </InputGroup>
                     </FormControl>
                     <Stack spacing={10} pt={2}>
