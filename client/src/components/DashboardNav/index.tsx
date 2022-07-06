@@ -281,6 +281,11 @@ export function DashboardNav() {
                                         Cancel
                                     </Button>
                                     <Button
+                                        onClick = { () => {
+                                            console.log('Test');
+                                            console.log('Test2');
+                                            onProfileClose()
+                                        }}
                                         bg={'blue.400'}
                                         color={'white'}
                                         w="full"
