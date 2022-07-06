@@ -28,6 +28,8 @@ export function CreateAlbum() {
   const [file, setFile] = useState();
   const [uploadedImages, setUploadedImages] = useState([])
 
+  const [invite, setInvite] = useState();
+
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -35,10 +37,12 @@ export function CreateAlbum() {
 
     emailjs.sendForm('service_5es8oey', 'template_jt004ma', form.current, 'Qipkbg_kQLx-Nrs3f')
       .then((result) => {
-        console.log(result.text);
+        console.log(result.text)
+        ;
       }, (error) => {
         console.log(error.text);
-      });
+      })
+      .then()
   };
 
 
@@ -187,6 +191,7 @@ export function CreateAlbum() {
                 value='Send'
                 onSubmit={sendEmail}>Send Invite
               </Button>
+              {invite && <div>INVITE SENT!</div>}
             </Stack>
           </FormControl>
         </form>

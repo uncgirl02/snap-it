@@ -9,6 +9,8 @@ import {
     Container,
     HStack,
     VStack,
+    Wrap,
+    WrapItem,
 
 } from '@chakra-ui/react';
 
@@ -22,26 +24,18 @@ const Dashboard = () => {
             <div>
                 <Flex>
                     <Sidebar children={undefined} />
-                    <VStack>
+                    
                         <Container maxW='fit-content' bg='blue.600' color='white' borderRadius='base'>
-                            <Heading className='top-album-heading' justifyContent={'center'}>Favorite Albums</Heading>
-                            <HStack>
-                                <AlbumCard />
-                                <AlbumCard />
-                                <AlbumCard />
-                                <AlbumCard />
-                            </HStack>
+                            <Heading className='top-album-heading' justifyContent={'center'}>My Albums</Heading>
+                            <Flex direction ='row'>
+                                <Wrap>
+                                    <WrapItem>
+                                        <AlbumCard />
+                                    </WrapItem>
+                                </Wrap>
+                            </Flex>
                         </Container>
-                        <Container maxW='fir-content' bg='blue.600' color='white' borderRadius='base'>
-                            <Heading className='top-album-heading' justifyContent={'center'}>Friends Albums</Heading>
-                            <HStack>
-                                <AlbumCard />
-                                <AlbumCard />
-                                <AlbumCard />
-                                <AlbumCard />
-                            </HStack>
-                        </Container>
-                    </VStack>
+        
                 </Flex>
             </div>
             <Footer />
