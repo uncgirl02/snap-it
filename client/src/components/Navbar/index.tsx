@@ -30,7 +30,7 @@ export default function Navbar() {
   } = useDisclosure();
   const { isOpen: isOpen } = useDisclosure();
   const [signupModal, setSignupModal] = useState(false);
-  const [error, setError] = useState(null);
+
   const navigate = useNavigate();
   const [error, setError] = useState(null);
 

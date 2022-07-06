@@ -8,11 +8,6 @@ import {
   Stack, Switch, useColorModeValue
 } from "@chakra-ui/react";
 
-import SimpleFileUpload, {
-  SimpleFileUploadProvider,
-} from "react-simple-file-upload";
-import React, { useState } from "react";
-import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 

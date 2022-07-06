@@ -20,7 +20,7 @@ export default function Home() {
 
 
                 <Container maxW='100%' centerContent bg={'gray.100'}>
-                    <Heading className='top-album-heading' pt={5}>Top Albums of the Week</Heading>
+                    
                     <HStack justifyContent={'center'}>
                         {/* <AlbumCard />
                         <AlbumCard />
@@ -30,7 +30,7 @@ export default function Home() {
                 </Container>
 
                 <Container maxW='100%' centerContent>
-                        <Heading fontSize={40}>Snap it. Share it. Done.</Heading>
+                        <Heading pt={5} fontSize={40}>Snap it. Share it. Done.</Heading>
                         <Text fontSize={30} fontWeight='bold'>How It Works</Text>
                         <HowItWorks />
                 </Container>
