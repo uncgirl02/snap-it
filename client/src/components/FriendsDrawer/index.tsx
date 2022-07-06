@@ -10,7 +10,6 @@ import {
     DrawerCloseButton,
     Button,
     useDisclosure,
-    Input,
   } from '@chakra-ui/react'
 
 export function FriendsDrawer() {

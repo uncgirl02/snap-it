@@ -8,44 +8,40 @@ import HowItWorks from '../components/HowItWorks'
 import ImageSlider from '../components/ImageSlider'
 import Navbar from '../components/Navbar'
 import Testimonials from '../components/Testimonials'
+import Hero from '../components/Hero'
 
 
-export default function Home ()  {
+export default function Home() {
 
-return ( 
-    
-    <main>
-    <Navbar />
-        <div>
-            <Flex>
-              
-                <Container maxW='100%' bg='blue.600' color='white' borderRadius='base' p={10} ms={5} me={10}>
-                    <ImageSlider images={images}></ImageSlider>  
-                </Container>
+    return (
 
-            </Flex>
+        <main>
+            <Navbar />
+            <div>
+                <Hero />
 
-            <Box>
-                <Heading className='top-album-heading' justifyContent={'center'}>Top Albums of the Week</Heading>
-                    <HStack>
+
+                <Container maxW='100%' centerContent bg={'gray.100'}>
+                    <Heading className='top-album-heading' pt={5}>Top Albums of the Week</Heading>
+                    <HStack justifyContent={'center'}>
                         <AlbumCard />
                         <AlbumCard />
                         <AlbumCard />
                         <AlbumCard />
                     </HStack>
-            </Box>
-               
-      
-        <Container w='100%'>
-            <Heading>Snap it. Share it. Done.</Heading>
-            <Text>How it Works.</Text>
-            <HowItWorks />
-        </Container>
-        <Testimonials />
-        </div> 
-    <Footer />
-    </main>
-    
-)
+                </Container>
+
+                <Container maxW='100%' centerContent>
+                        <Heading fontSize={40}>Snap it. Share it. Done.</Heading>
+                        <Text fontSize={30} fontWeight='bold'>How It Works</Text>
+                        <HowItWorks />
+                </Container>
+            
+                <Testimonials />
+            </div>
+            <Footer />
+        </main>
+
+    )
 }
 

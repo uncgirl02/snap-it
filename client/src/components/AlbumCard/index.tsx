@@ -2,18 +2,12 @@ import React from 'react'
 
 import {
     Flex,
-    Circle,
     Box,
     Image,
     Badge,
     useColorModeValue,
-    Icon,
-    chakra,
-    Tooltip,
   } from '@chakra-ui/react';
-  import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
-  import { FiShoppingCart } from 'react-icons/fi';
-import { graphqlSync } from 'graphql';
+
   
   const data = {
     isNew: true,
@@ -48,7 +42,7 @@ import { graphqlSync } from 'graphql';
             <Box display="flex" alignItems="baseline">
               {data.isNew && (
                 <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
-                  Top Album
+                  Username
                 </Badge>
               )}
             </Box>
@@ -59,7 +53,8 @@ import { graphqlSync } from 'graphql';
                 as="h4"
                 lineHeight="tight"
                 >
-                {data.name}
+                Album Name
+                {/* {data.name} */}
               </Box>
             </Flex>
   
@@ -67,7 +62,7 @@ import { graphqlSync } from 'graphql';
               <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
                 <Box as="span" color={'gray.600'} fontSize="lg">
                 </Box>
-                Album Name
+                Category
                 {/* {data.price.toFixed(2)} */}
               </Box>
             </Flex>

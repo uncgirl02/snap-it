@@ -46,14 +46,14 @@ type Mutation {
     addThought(thoughtText: String!): Thought
     addReaction(thoughtId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
-    addAlbum(albumName: String!): Album
+    addAlbum(albumName: String!, isPublic: Boolean!, photos:[String]!): Album
 }
 
 type Album {
     _id: ID
     albumName: String
-    createdAt: String
-
+    isPublic: Boolean
+    photos:[String]
 }
 `;
 

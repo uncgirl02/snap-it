@@ -25,6 +25,7 @@ export const ADD_USER = gql `
 `;
 
 
+
 export const ADD_FRIEND = gql`
   mutation addFriend($id: ID!) {
     addFriend(friendId: $id) {
@@ -37,3 +38,28 @@ export const ADD_FRIEND = gql`
     }
   }
 `;
+
+export const GET_USER = gql `
+    query user($username: String!){
+        user(username: "Fan44") {
+            user {
+                _id
+                username
+            }
+        }
+    }
+`;
+
+
+export const ADD_ALBUM = gql `
+    mutation addAlbum($albumName: String!, $isPublic: Boolean!, $photos:[String]!){
+        addAlbum(albumName: $albumName, isPublic: $isPublic, photos:$photos) {
+            _id
+            albumName
+            isPublic
+            photos
+        }
+    }
+`;
+
+
