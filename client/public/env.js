@@ -49,5 +49,7 @@ window.env = {
   "VSCODE_GIT_ASKPASS_NODE": "/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper.app/Contents/MacOS/Code Helper",
   "npm_node_execpath": "/usr/local/bin/node",
   "npm_config_prefix": "/usr/local",
-  "COLORTERM": "truecolor"
+  "COLORTERM": "truecolor",
+  "REACT_APP_API_KEY": "d479605eda75f2a5f3b0db1676d16b26",
+  "API_KEY": "4e28e1309be8339275d72ad75bd6fad7"
 };

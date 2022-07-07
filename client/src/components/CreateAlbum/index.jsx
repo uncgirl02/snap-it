@@ -100,8 +100,9 @@ export function CreateAlbum() {
         </FormControl>
         <Stack direction={["column", "row"]} spacing={6}>
           <Center></Center>
+          {console.log(process.env, "env")}
           <SimpleFileUpload
-            apiKey="4e28e1309be8339275d72ad75bd6fad7"
+            apiKey={process.env.API_KEY}
             preview="false"
             width="300"
             height="300"
