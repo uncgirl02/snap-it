@@ -54,7 +54,6 @@ export function CreateAlbum() {
   const [isSending, setIsSending] = useState(false);
 
   const sendCreateAlbumRequest = () => {
-    // console.log(`Album Name: ${albumName}...isPublic: ${isPublic}...Photo: ${uploadedImages}...Friend Email: ${friendEmail}`)
     if (isSending) return;
     setIsSending(true);
 
@@ -103,8 +102,7 @@ export function CreateAlbum() {
           <Center></Center>
           <SimpleFileUpload
             apiKey="d479605eda75f2a5f3b0db1676d16b26"
-            // apiKey = {process.env.HEROKU_KEY}
-            preview="true"
+            preview="false"
             width="300"
             height="300"
             multiple="true"

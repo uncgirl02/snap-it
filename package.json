@@ -24,7 +24,9 @@
     "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "dotenv": "^16.0.1",
     "framer-motion": "^6.3.13",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dotenv": "^0.1.3"
   }
 }

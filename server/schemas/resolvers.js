@@ -33,13 +33,7 @@ const resolvers = {
     albums: async(parent, {username}) => {
       const params = username ? { username } : {};
       return Album.find(params).sort({ createdAt: -1 });
-    },
-    
-    // albums: async() => {
-    //   const params = username ? { username } : {};
-    //   return User.find(params).sort({ createdAt: -1 });
-    // },
-
+    }
   },
 
   Mutation: {

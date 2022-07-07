@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import AlbumCard from "../components/AlbumCard";
 
 
-import { QUERY_USER, GET_ALBUMS } from "../utils/queries";
+import { GET_ALBUMS } from "../utils/queries";
 import Auth from "../utils/auth";
 
 
@@ -48,7 +48,7 @@ const Dashboard = () => {
               borderRadius="base"
             >
               <Heading className="top-album-heading" justifyContent={"center"}>
-                Favorite Albums
+                My Albums
               </Heading>
               <HStack>
                     {albums &&
@@ -56,18 +56,6 @@ const Dashboard = () => {
                   albums.map((album: any, key: any) => (
                     <AlbumCard album={album}  />
                   ))}
-              </HStack>
-            </Container>
-            <Container
-              maxW="fir-content"
-              bg="blue.600"
-              color="white"
-              borderRadius="base"
-            >
-              <Heading className="top-album-heading" justifyContent={"center"}>
-                Friends Albums
-              </Heading>
-              <HStack>
               </HStack>
             </Container>
           </VStack>
