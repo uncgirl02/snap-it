@@ -20,7 +20,7 @@ Snap It! is a photo-album sharing website where users can create public or priva
 ## Installation
 To start application install npm by entering the command ```npm install```  into the terminal. This will install all dependencies in the ```package.json```, in the root directory, required to run this application. At the server folder and client folder enter the command ```npm i``` into the terminal to install all dependencies in the ```package.json```, at each subfolder level. At the root directory enter the command ```npm run develop``` to start the application
 
-![Snap It Screenshot](./client/src/assets/images/screenshot.png)
+![Snap It Screenshot](./client/src/assets/images/Snap It.png)
 
 ## Tests
 ![GitHub license](https://img.shields.io/badge/test-100%25-success)
