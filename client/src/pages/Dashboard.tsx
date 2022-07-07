@@ -28,7 +28,6 @@ const Dashboard = () => {
   const { loading, error, data } = useQuery(GET_ALBUMS, {
     variables: { username: username ? username : "" },
   });
-  console.log("User Photos", data?.albums[0].albumName);
 
   useEffect(() => {
     setPhotos(data?.albums[0]?.photos);
