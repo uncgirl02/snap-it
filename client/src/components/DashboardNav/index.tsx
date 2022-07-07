@@ -43,31 +43,12 @@ const logout = () => {
     Auth.logout();
 }
 
-// const jwt = require('jsonwebtoken');
-// const User = require('../../../')
-
-// const theUser = () => {
-
-//     console.log(Auth.getUser())
-
 
 export function DashboardNav() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { isOpen: isProfileOpen, onOpen: onProfileOpen, onClose: onProfileClose } = useDisclosure();
     const { isOpen: isFriendOpen, onOpen: onFriendOpen, onClose: onFriendClose } = useDisclosure();
     const { isOpen: isAddFriendOpen, onOpen: onAddFriendOpen, onClose: onAddFriendClose } = useDisclosure();
-    
-    // const { loading, data } = useQuery(QUERY_USER, {
-    //     variables: { username: Auth.getUser() }
-    // });
-    
-    // const user = data?.user || {};
-    // const theUser = () => {
-    //     user.friends.map(() => (
-    //         console.log(user.friends._id))
-    //     )}
-    //     console.log(user.friends[2]._id)
-    // }
     
     return (
         <>
@@ -153,19 +134,6 @@ export function DashboardNav() {
                             Create New Album
                         </Button>
                         <Menu>
-                            {/* <MenuButton
-                                as={Button}
-                                rounded={'full'}
-                                variant={'link'}
-                                cursor={'pointer'}
-                                minW={0}>
-                                <Avatar
-                                    size={'sm'}
-                                    src={
-                                        'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
-                                    }
-                                />
-                            </MenuButton> */}
                         </Menu>
                     </Flex>
                 </Flex>
@@ -315,12 +283,6 @@ export function DashboardNav() {
             <DrawerBody>
             <List spacing={3}>
                 <p>Peter Piper</p>
-              {/* {user.friends.map(() => (
-                    <ListItem>
-                        <ListIcon as={MdPeople} />
-                        {user.friends.username}
-                    </ListItem>
-                ))} */}
             </List>
             </DrawerBody>
   

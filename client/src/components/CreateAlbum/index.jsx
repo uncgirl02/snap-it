@@ -7,9 +7,7 @@ import {
   Input,
   Stack, Switch, useColorModeValue
 } from "@chakra-ui/react";
-
 import { useNavigate } from "react-router-dom";
-
 
 import { useMutation } from "@apollo/client";
 import { useRef, useState } from "react";
@@ -23,22 +21,26 @@ export function CreateAlbum() {
   const [uploadedImages, setUploadedImages] = useState([]);
   const navigate = useNavigate();
 
-  const [invite, setInvite] = useState();
-
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-
-    emailjs.sendForm('service_5es8oey', 'template_jt004ma', form.current, 'Qipkbg_kQLx-Nrs3f')
-      .then((result) => {
-        console.log(result.text)
-        ;
-      }, (error) => {
-        console.log(error.text);
-      })
-      .then()
+    emailjs
+      .sendForm(
+        "service_5es8oey",
+        "template_jt004ma",
+        form.current,
+        "Qipkbg_kQLx-Nrs3f"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   function handleUpload(url) {
@@ -74,12 +76,16 @@ export function CreateAlbum() {
 
   return (
     <Flex
+      // minH={'100vh'}
+      // align={'center'}
+      // justify={'center'}
       width={"full"}
       bg={useColorModeValue("gray.100", "gray.800")}
     >
       <Stack
         spacing={6}
         w="100%"
+        //   maxW={'md'}
         bg={useColorModeValue("white", "gray.700")}
         rounded={"xl"}
         boxShadow={"lg"}
@@ -112,9 +118,20 @@ export function CreateAlbum() {
           />
           {file && <p> Uploaded: {file}</p>}
         </Stack>
-
-        <Stack direction={['column', 'row']} spacing='24px'>
-
+        {/* <SimpleGrid>
+          <List>
+            {uploadedImages.length ? (
+              uploadedImages.map((image)=>(
+                <ListItem h={200} w={200} mb={10}>
+                  <img src={image} alt="Album Photos"/>
+                </ListItem>
+              ))
+            ) : (
+              <p>Your uploaded images will appear here!</p>
+            )}
+          </List>
+        </SimpleGrid> */}
+        <Stack direction={["column", "row"]} spacing="24px">
           {uploadedImages.length ? (
             uploadedImages.map((image) => (
               <Box height="200" w="200px" mb={30}>
@@ -179,7 +196,6 @@ export function CreateAlbum() {
               >
                 Send Invite
               </Button>
-              {invite && <div>INVITE SENT!</div>}
             </Stack>
           </FormControl>
         </form>

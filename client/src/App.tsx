@@ -55,12 +55,12 @@ export const App = () => (
                 element={<Home />} 
               />
               <Route 
-                path="/dashboard" 
-                element={<Dashboard />} 
-              />
-              <Route 
                 path="/NewAlbum" 
                 element={<NewAlbum />} 
+              />
+              <Route 
+                path="/dashboard" 
+                element={<Dashboard />} 
               />
               <Route 
                 path="/EditAlbum" 
