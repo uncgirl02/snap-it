@@ -101,7 +101,7 @@ export function CreateAlbum() {
         <Stack direction={["column", "row"]} spacing={6}>
           <Center></Center>
           <SimpleFileUpload
-            apiKey="d479605eda75f2a5f3b0db1676d16b26"
+            apiKey="4e28e1309be8339275d72ad75bd6fad7"
             preview="false"
             width="300"
             height="300"
